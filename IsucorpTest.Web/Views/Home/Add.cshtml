@@ -5,73 +5,91 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Contact</h2>
+<hr/>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>ContactViewModel</h4>
-        <hr />
+    <div class="form-horizontal">           
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="form-group">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="contactName" type="text" class="form-control" name="contactName" placeholder="Contact Full Name">
+                    </div>
+                </div>               
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
+                        <select id="contactType" class="form-control" name="contactType" placeholder="Phone Number">                            
+                        </select>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="form-group">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                        <input id="phoneNumber" type="text" class="form-control" name="phoneNumber" placeholder="Phone Number">
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="form-group">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-12">
-                <div class="form-group">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        @Html.EditorFor(model => model.ContactTypeId, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ContactTypeId, "", new { @class = "text-danger" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        <input id="birthDate" type="datetime" class="form-control" name="birthDate" placeholder="Birth Date">
                     </div>
                 </div>
             </div>
         </div>
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 noPadding">
                     <div class="form-group">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            rich edit
-                            </div>
-                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">                                                                        
+                            <textarea>Type Resume here!</textarea>                          
+                         </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="form-group pull-right">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            @Html.ActionLink("Save", "Add", null, new { @class = "btn btn-danger", id = "addContact" })
-                            @*<input type="submit" value="Create" class="btn btn-danger" />*@
+                            @Html.ActionLink("Save", "Add", null, new { @class = "btn btn-danger", id = "addContact" })                            
                         </div>
                     </div>
                 </div>
-            </div>
-                         
+            </div>                         
     </div>
+}
+
+@section Scripts{   
+    <script src="~/Scripts/tinymce/js/tinymce/tinymce.min.js"></script>   
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            height: 500,
+            theme: 'modern',
+            plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+            toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+            image_advtab: true,
+            templates: [
+                { title: 'Test template 1', content: 'Test 1' },
+                { title: 'Test template 2', content: 'Test 2' }
+            ],
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });
+    </script>           
 }
 
 
