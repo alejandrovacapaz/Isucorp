@@ -1,0 +1,56 @@
+﻿@model IEnumerable<IsucorpTest.Model.ViewModel.ContactViewModel>
+@{ 
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron lessPadding col-md-12">
+    <div class="col-md-6">
+        <p>Create a New Contact for the application here</p>
+    </div>
+    <div class="col-md-6 text-right">
+        @Html.ActionLink("New Contact", "Add", null, new { @class = "btn btn-danger", id="newContact" })
+    </div>
+</div>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().BirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().ContactType.Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactType.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", null, new { @class ="btn btn-success"}) 
+                    @Html.ActionLink("Delete", "Delete", null, new { id= item.Id,  @class = "btn btn-warning" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
