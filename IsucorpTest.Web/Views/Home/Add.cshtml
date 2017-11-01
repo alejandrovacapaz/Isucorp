@@ -13,7 +13,10 @@
     
     <div class="form-horizontal">  
              
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger"})
+        
+        <div id="clientErrors" style="display: none">             
+        </div>
 
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12">
@@ -57,33 +60,35 @@
                 </div>
             </div>
         </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 noPadding">
-                    <div class="form-group">
-                        <div class="col-lg-12 col-md-12 col-sm-12">                                                                        
-                            <textarea id="contactDescription"></textarea>                          
-                         </div>
+                          
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 noPadding">
+                <div class="form-group">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <textarea id="contactDescription"></textarea>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="form-group pull-right">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <input type="button" value="Save" class="btn btn-danger" id="btnAddContact"/>                          
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group pull-right">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <input type="button" value="Save" class="btn btn-danger" id="btnAddContact"/>
                     </div>
                 </div>
-            </div>                         
+            </div>
+        </div>
     </div>
 }
 
 @section Scripts{   
     <script src="~/Scripts/tinymce/js/tinymce/tinymce.min.js"></script>   
     <script>
-        var today = new Date();
-        $('#birthDate').datepicker();
+        var today = new Date();   
+        $("#birthDate").datepicker({ dateFormat: "DD, MM d, yy" });
         $('#birthDate').datepicker("setDate", today);
+        
         tinymce.init({
             selector: 'textarea',
             height: 500,
@@ -102,6 +107,7 @@
         });
 
         $(document).ready(function () {
+            
             $("#ContactTypeId").val($('#contactType option:selected').val());
         });
 
@@ -119,33 +125,46 @@
         //}
 
         var data;     
-        $('#btnAddContact').on("click",
-            function () {
-                data = {
-                    Id: 0,
-                    Name: $("#contactName").val().trim(),
-                    PhoneNumber: $("#phoneNumber").val().trim(),
-                    BirthDate: $('#birthDate').datepicker({ dateFormat: 'mm-dd-yy' }).val(),
-                    ContactTypeId: parseInt($("#ContactTypeId").val().trim()),                 
-                    Description: tinymce.get('contactDescription').getContent()
-                }               
-                $.ajax({
-                    type: 'POST',
-                    url: '/Home/Add',
-                    dataType: 'json',
-                    data: { contact: data },
-                    success: function (result) {                       
-                        if (!result.success)
-                            alert("There was an error adding the contact review data");
-                        else
-                            GotoIndex();
-                    },
-                    error: function (textStatus, errorThrown) {
-                        console.log(textStatus);
-                        console.log(errorThrown);
-                    }
-                });
-            });
+        $('#btnAddContact').on("click",          
+            function () {               
+                var contactName = $("#contactName").val().trim();
+                var contactBirthDate = $("#birthDate").datepicker("getDate");               
+                if (contactName === "") {
+                    $("#clientErrors").append('<label class="text-danger">Insert Contact Name</label>');                                     
+                }
+                if (contactBirthDate === today) {
+                    $("#clientErrors").append('<label class="text-danger">Review Birth Date</label>');                                      
+                }                
+                else
+                {
+                    $("#clientErrors").hide();
+                    data = {
+                        Id: 0,
+                        Name: contactName,
+                        PhoneNumber: $("#phoneNumber").val().trim(),
+                        BirthDate: $('#birthDate').datepicker({ dateFormat: 'mm-dd-yy' }).val(),
+                        ContactTypeId: parseInt($("#ContactTypeId").val().trim()),                 
+                        Description: tinymce.get('contactDescription').getContent()
+                    }               
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/Add',
+                        dataType: 'json',
+                        data: { contact: data },
+                        success: function (result) {                       
+                            if (!result.success)
+                                alert("There was an error adding the contact review data");
+                            else
+                                GotoIndex();
+                        },
+                        error: function (textStatus, errorThrown) {
+                            console.log(textStatus);
+                            console.log(errorThrown);
+                        }
+                    });               
+                }
+                $("#clientErrors").show();
+            });                
     </script>           
 }
 
