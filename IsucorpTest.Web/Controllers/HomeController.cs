@@ -7,14 +7,16 @@ namespace IsucorpTest.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IContactLogic _contactLogic;
+        private readonly IContactTypeLogic _contactTypeLogic;
 
         public HomeController()
         {
 
         }
-        public HomeController(IContactLogic contactLogic)
+        public HomeController(IContactLogic contactLogic, IContactTypeLogic contactTypeLogic)
         {
             _contactLogic = contactLogic;
+            _contactTypeLogic = contactTypeLogic;
         }
 
         public ActionResult Index()
@@ -23,24 +25,22 @@ namespace IsucorpTest.Web.Controllers
             return View(contacts);
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Add()
+        {
+            var contact = new ContactViewModel();
+            contact.ContactTypes = _contactTypeLogic.GetAllEntities();
+            return View(contact);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(ContactViewModel contact)
         {
             _contactLogic.Add(contact);
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

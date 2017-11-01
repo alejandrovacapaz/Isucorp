@@ -133,6 +133,10 @@
     <Compile Include="Migrations\201710272010317_InitialMigration.Designer.cs">
       <DependentUpon>201710272010317_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710312323031_ContactDescriptionMigration.cs" />
+    <Compile Include="Migrations\201710312323031_ContactDescriptionMigration.Designer.cs">
+      <DependentUpon>201710312323031_ContactDescriptionMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AuthRepository.cs" />
@@ -161,6 +165,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710272010317_InitialMigration.resx">
       <DependentUpon>201710272010317_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710312323031_ContactDescriptionMigration.resx">
+      <DependentUpon>201710312323031_ContactDescriptionMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

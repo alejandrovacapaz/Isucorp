@@ -5,21 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<hr/>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Add", "Home", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">           
+    <div class="form-horizontal"> 
+        @*<br />
+        <hr />
+        <br />*@
+          
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="contactName" type="text" class="form-control" name="contactName" placeholder="Contact Full Name">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Contact Full Name" } })
+                        @*<input id="contactName" type="text" class="form-control" name="contactName" placeholder="Contact Full Name">*@
                     </div>
                 </div>               
             </div>
@@ -27,8 +29,16 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-                        <select id="contactType" class="form-control" name="contactType" placeholder="Phone Number">                            
+                        <select id="contactTypes" class="form-control" name="contactType" placeholder="Contact Type"> 
+                            @foreach (var item in Model.ContactTypes)
+                            {
+                                <option value="@item.Id">
+                                    @item.Name
+                                </option>
+                            }                            
                         </select>
+                        @Html.HiddenFor(model => model.ContactTypeId)
+                        @Html.HiddenFor(model => model.ContactType)
                     </div>
                 </div>
             </div>
@@ -36,7 +46,8 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                        <input id="phoneNumber" type="text" class="form-control" name="phoneNumber" placeholder="Phone Number">
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", type = "number", placeholder = "Phone Number" } })
+                        @*<input id="phoneNumber" type="text" class="form-control" name="phoneNumber" placeholder="Phone Number">*@
                     </div>
                 </div>
             </div>
@@ -44,7 +55,8 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                        <input id="birthDate" type="datetime" class="form-control" name="birthDate" placeholder="Birth Date">
+                        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", type = "datetime", placeholder = "BirthDate" } })
+                        @*<input id="birthDate" type="datetime" class="form-control" name="birthDate" placeholder="Birth Date">*@
                     </div>
                 </div>
             </div>
@@ -52,21 +64,23 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 noPadding">
                     <div class="form-group">
-                        <div class="col-lg-12 col-md-12 col-sm-12">                                                                        
-                            <textarea>Type Resume here!</textarea>                          
+                        <div class="col-lg-12 col-md-12 col-sm-12">   
+                            @Html.TextAreaFor(model => model.Description, null)                                                                     
+                            @*<textarea id="contactDescription">Type Description here!</textarea>*@                          
                          </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="form-group pull-right">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            @Html.ActionLink("Save", "Add", null, new { @class = "btn btn-danger", id = "addContact" })                            
+            </div>           
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group pull-right">
+                            <div class="col-lg-12 col-md-12 col-sm-12">                                
+                                <input type="button" class="btn btn-danger" value="Save"/>
+                                @*@Html.ActionLink("Save", "Add", "Home", new { @class = "btn btn-danger", id = "addContact" })*@                          
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>                         
+                </div>                                 
     </div>
 }
 
@@ -89,7 +103,29 @@
                 '//www.tinymce.com/css/codepen.min.css'
             ]
         });
-    </script>           
+    </script>    
+    <script>
+        $(document).ready(function () {
+            $('#ContactTypeId').val(parseInt($('#contactTypes option:selected').val()));
+        });
+
+    //    $('#addContact').on("click",
+    //    function () {
+    //    $.ajax({
+    //        type: 'POST',
+    //        url: '/Home/AddContact',
+    //        dataType: 'json',
+    //        data: { contact: Model },
+    //        success: function (result) {
+    //            console.log("ok");
+    //        },
+    //        error: function (textStatus, errorThrown) {
+    //            console.log(textStatus);
+    //            console.log(errorThrown);
+    //        }
+    //    });
+    //});
+    </script>       
 }
 
 

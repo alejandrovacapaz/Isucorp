@@ -140,8 +140,10 @@
     <Compile Include="BLLUnityExtension.cs" />
     <Compile Include="BuisnessLogic\AuthLogic.cs" />
     <Compile Include="BuisnessLogic\ContactLogic.cs" />
+    <Compile Include="BuisnessLogic\ContactTypeLogic.cs" />
     <Compile Include="BuisnessLogic\Interfaces\IAuthLogic.cs" />
     <Compile Include="BuisnessLogic\Interfaces\IContactLogic.cs" />
+    <Compile Include="BuisnessLogic\Interfaces\IContactTypeLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
