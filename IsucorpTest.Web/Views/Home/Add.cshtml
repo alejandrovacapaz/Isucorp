@@ -53,7 +53,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 noPadding">
                     <div class="form-group">
                         <div class="col-lg-12 col-md-12 col-sm-12">                                                                        
-                            <textarea>Type Resume here!</textarea>                          
+                            <textarea></textarea>                          
                          </div>
                     </div>
                 </div>
@@ -62,7 +62,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="form-group pull-right">
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            @Html.ActionLink("Save", "Add", null, new { @class = "btn btn-danger", id = "addContact" })                            
+                            <input type="button" class="btn btn-danger" id="addContact"/>
+                            @*@Html.ActionLink("Save", "Add", null, new {@class = "", id = "addContact"})*@
                         </div>
                     </div>
                 </div>

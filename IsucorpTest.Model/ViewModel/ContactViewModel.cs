@@ -1,5 +1,6 @@
 ﻿using IsucorpTest.Model.DBModel;
 using System;
+using System.Collections.Generic;
 
 namespace IsucorpTest.Model.ViewModel
 {
@@ -17,7 +18,8 @@ namespace IsucorpTest.Model.ViewModel
             PhoneNumber = contact.PhoneNumber;
             BirthDate = contact.BirthDate;
             ContactTypeId = contact.ContactTypeId;
-            ContactType = contact.ContactType;
+            ContactType = new ContactTypeViewModel(contact.ContactType);
+            Description = contact.Description;
         }
 
         public int Id { get; set; }
@@ -25,6 +27,8 @@ namespace IsucorpTest.Model.ViewModel
         public string PhoneNumber { get; set; }
         public DateTime BirthDate { get; set; }
         public int ContactTypeId { get; set; }
-        public virtual ContactType ContactType { get; set; }
+        public virtual ContactTypeViewModel ContactType { get; set; }
+        public List<ContactTypeViewModel> ListContactTypes { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -130,6 +130,7 @@
     <Compile Include="DBModel\ContactType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AuthUserViewModel.cs" />
+    <Compile Include="ViewModel\ContactTypeViewModel.cs" />
     <Compile Include="ViewModel\ContactViewModel.cs" />
     <Compile Include="ViewModel\IdentityViewModel.cs" />
     <Compile Include="ViewModel\ResultPasswordResult.cs" />
