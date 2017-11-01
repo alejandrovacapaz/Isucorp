@@ -12,6 +12,7 @@ namespace IsucorpTest.BLL
             Container.AddNewExtension<DALUnityExtension>();
             Container.RegisterType<IAuthLogic, AuthLogic>();
             Container.RegisterType<IContactLogic, ContactLogic>();
+            Container.RegisterType<IContactTypeLogic, ContactTypeLogic>();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using IsucorpTest.Model.DBModel;
 using System;
 using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace IsucorpTest.Model.ViewModel
 {
@@ -29,6 +30,7 @@ namespace IsucorpTest.Model.ViewModel
         public int ContactTypeId { get; set; }
         public virtual ContactTypeViewModel ContactType { get; set; }
         public List<ContactTypeViewModel> ListContactTypes { get; set; }
+        [AllowHtml]
         public string Description { get; set; }
     }
 }

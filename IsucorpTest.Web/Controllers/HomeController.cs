@@ -26,11 +26,20 @@ namespace IsucorpTest.Web.Controllers
             return View(contacts);
         }
 
+        [HttpGet]
         public ActionResult Add()
         {
             var contact = new ContactViewModel();
             contact.ListContactTypes = _contactTypeLogic.GetAllContactTypes();
             return View(contact);
-        }    
+        }
+
+        [HttpPost]       
+        public ActionResult Add(ContactViewModel contact)
+        {
+            contact.ContactType = _contactTypeLogic.GetContactType(contact.ContactTypeId);
+            var result = _contactLogic.Add(contact);
+            return Json(new { success = result });
+        }
     }
 }

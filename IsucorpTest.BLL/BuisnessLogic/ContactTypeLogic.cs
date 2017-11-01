@@ -19,6 +19,11 @@ namespace IsucorpTest.BLL.BuisnessLogic
         public List<ContactTypeViewModel> GetAllContactTypes()
         {
             return _contactTypeRepository.GetAllEntities().Select(ct => new ContactTypeViewModel(ct)).ToList();
-        }             
+        }
+
+        public ContactTypeViewModel GetContactType(int contactTypeId)
+        {
+            return new ContactTypeViewModel(_contactTypeRepository.FindById(contactTypeId));
+        }
     }
 }

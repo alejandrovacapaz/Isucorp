@@ -22,7 +22,7 @@ namespace IsucorpTest.Model.DBModel
         public string PhoneNumber { get; set; }
         public DateTime BirthDate { get; set; }
         public int ContactTypeId { get; set; }
-        public virtual ContactType ContactType { get; set; }
+        public virtual ContactType ContactType { get; set; }     
         public string Description { get; set; }
     }
 }
