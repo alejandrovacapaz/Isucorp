@@ -191,4 +191,8 @@ ol.upload-files-list .upload-file .upload-progress-bar {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
+.noBottomMargin{
+    margin-bottom: 0px!important;
+}
    

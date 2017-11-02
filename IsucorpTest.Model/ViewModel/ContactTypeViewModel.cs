@@ -1,4 +1,5 @@
 ﻿using IsucorpTest.Model.DBModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace IsucorpTest.Model.ViewModel
 {
@@ -16,6 +17,7 @@ namespace IsucorpTest.Model.ViewModel
         }
 
         public int Id { get; set; }
+        [Display(Name = "Contact Type")]
         public string Name { get; set; }
     }
 }

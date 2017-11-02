@@ -4,11 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Html.Partial("Delete")
 <div class="jumbotron lessPadding col-lg-12 col-sm-12 col-md-12">
-    <div class="col-md-6">
-        <p>Create a New Contact for the application here</p>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <label class="text-info">Create a New Contact for the application here</label>
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-lg-6 col-md-6 col-sm-6 text-right">
         @Html.ActionLink("New Contact", "Add", null, new { @class = "btn btn-danger", id="newContact" })
     </div>
 </div>
@@ -33,7 +34,7 @@
 
         @foreach (var item in Model)
         {
-            <tr>
+            <tr id="row">
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -47,10 +48,15 @@
                     @Html.DisplayFor(modelItem => item.ContactType.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", null, new { @class ="btn btn-success"}) 
-                    @Html.ActionLink("Delete", "Delete", null, new { id= item.Id,  @class = "btn btn-warning" })
+                    @Html.ActionLink("Edit", "Edit", new { contactId = item.Id }, new { @class ="btn btn-success"}) 
+                    @Html.ActionLink("Delete", "Delete", null, new { title = item.Name, id = item.Id,  @class = "btn btn-warning deleteContact" })
                 </td>
             </tr>
         }
     </table>
 </div>
+
+@section Scripts{
+    <script src="~/Scripts/created/globalMethods.js"></script>
+    <script src="~/Scripts/created/deleteContact.js"></script>
+}

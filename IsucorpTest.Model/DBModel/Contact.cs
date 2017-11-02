@@ -11,11 +11,11 @@ namespace IsucorpTest.Model.DBModel
         }
         public Contact(ContactViewModel contact)
         {
+            Id = contact.Id;
             Name = contact.Name;
             PhoneNumber = contact.PhoneNumber;
             BirthDate = contact.BirthDate;
             ContactTypeId = contact.ContactTypeId;
-            ContactType = new ContactType(contact.ContactType);
             Description = contact.Description;
         }
         public string Name { get; set; }

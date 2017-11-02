@@ -9,5 +9,6 @@ namespace IsucorpTest.BLL.BuisnessLogic.Interfaces
         bool Update(ContactViewModel contact);
         bool Delete(int contactId);
         List<ContactViewModel> GetAllContacts();
+        ContactViewModel GetContactById(int contactId);
     }
 }
