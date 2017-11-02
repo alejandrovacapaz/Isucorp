@@ -1,13 +1,13 @@
-﻿using IsucorpTest.BLL.BuisnessLogic.Interfaces;
+﻿using System.Collections.Generic;
+using System.Linq;
+using IsucorpTest.BLL.BuisnessLogic.Interfaces;
 using IsucorpTest.DAL.Repositories.Interfaces;
 using IsucorpTest.Model.DBModel;
 using IsucorpTest.Model.ViewModel;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace IsucorpTest.BLL.BuisnessLogic
 {
-    public class ContactTypeLogic: IContactTypeLogic
+    public class ContactTypeLogic : IContactTypeLogic
     {
         private readonly ICollectionRepository<ContactType> _contactTypeRepository;
 
@@ -16,9 +16,14 @@ namespace IsucorpTest.BLL.BuisnessLogic
             _contactTypeRepository = contactTypeRepository;
         }
 
-        public List<ContactTypeViewModel> GetAllEntities()
+        public List<ContactTypeViewModel> GetAllContactTypes()
         {
-            return _contactTypeRepository.GetAllEntities().Select(c => new ContactTypeViewModel(c)).ToList();
+            return _contactTypeRepository.GetAllEntities().Select(ct => new ContactTypeViewModel(ct)).ToList();
+        }
+
+        public ContactTypeViewModel GetContactType(int contactTypeId)
+        {
+            return new ContactTypeViewModel(_contactTypeRepository.FindById(contactTypeId));
         }
     }
 }

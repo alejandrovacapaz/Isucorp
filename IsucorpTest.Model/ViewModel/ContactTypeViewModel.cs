@@ -6,14 +6,15 @@ namespace IsucorpTest.Model.ViewModel
     {
         public ContactTypeViewModel()
         {
-
+            
         }
 
-        public ContactTypeViewModel(ContactType contact)
+        public ContactTypeViewModel(ContactType contactType)
         {
-            Id = contact.Id;
-            Name = contact.Name;
+            Id = contactType.Id;
+            Name = contactType.Name;
         }
+
         public int Id { get; set; }
         public string Name { get; set; }
     }

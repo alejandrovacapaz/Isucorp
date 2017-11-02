@@ -13,6 +13,7 @@ namespace IsucorpTest.Web.Controllers
         {
 
         }
+
         public HomeController(IContactLogic contactLogic, IContactTypeLogic contactTypeLogic)
         {
             _contactLogic = contactLogic;
@@ -26,21 +27,19 @@ namespace IsucorpTest.Web.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public ActionResult Add()
         {
             var contact = new ContactViewModel();
-            contact.ContactTypes = _contactTypeLogic.GetAllEntities();
+            contact.ListContactTypes = _contactTypeLogic.GetAllContactTypes();
             return View(contact);
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        [HttpPost]       
         public ActionResult Add(ContactViewModel contact)
         {
-            _contactLogic.Add(contact);
-            return RedirectToAction("Index");
+            contact.ContactType = _contactTypeLogic.GetContactType(contact.ContactTypeId);
+            var result = _contactLogic.Add(contact);
+            return Json(new { success = result });
         }
     }
 }
