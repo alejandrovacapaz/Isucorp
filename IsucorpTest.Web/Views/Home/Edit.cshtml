@@ -13,7 +13,7 @@
     <div class="form-horizontal">
         <div class="jumbotron lessPadding noBottomMargin col-lg-12 col-sm-12 col-md-12">
             <div class="col-lg-6 col-md-6 col-sm-6">
-                <label class="text-info">Edit Contact</label>
+                <h4 class="text-info">Edit Contact</h4>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 text-right">
                 @Html.ActionLink("< Back to Contact List", "Index", null, new { @class = "btn btn-primary" })
@@ -24,13 +24,12 @@
         <div id="editClientErrors" style="display: none">
         </div>
 
-        <div class="row">
+        <div class="row noLeftRigthMargin">
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "editContactName", @type = "text", @placeholder = "Contact Full Name" } })
-                        @*<input id="editContactName" type="text" class="form-control" name="contactName" placeholder="Contact Full Name">*@
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "editContactName", @type = "text", @placeholder = "Contact Full Name", @tabindex = "1" } })                       
                     </div>
                 </div>
             </div>
@@ -38,7 +37,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-                        <select id="editContactType" class="form-control" name="contactType">
+                        <select id="editContactType" class="form-control" name="contactType" tabindex="2">
                             @foreach (var item in Model.ListContactTypes)
                             {
                                 <option value="@item.Id">
@@ -54,8 +53,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "editPhoneNumber", @type = "text", @placeholder = "(99) 9999-9999" } })
-                        @*<input id="editPhoneNumber" type="text" class="form-control" name="phoneNumber" placeholder="Phone Number">*@
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "editPhoneNumber", @type = "text", @placeholder = "(99) 9999-9999", @tabindex = "3" } })                       
                     </div>
                 </div>
             </div>
@@ -63,8 +61,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", @id = "editBirthDate", @type = "datetime" } })
-                        @*<input id="editBirthDate" type="datetime" class="form-control" name="birthDate" placeholder="Birth Date">*@
+                        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", @id = "editBirthDate", @type = "datetime", @tabindex = "4" } })                      
                     </div>
                 </div>
             </div>
@@ -74,17 +71,16 @@
             <div class="col-lg-12 col-md-12 col-sm-12 noPadding">
                 <div class="form-group">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        @Html.TextAreaFor(model => model.Description, 3, 70, new { @id = "editContactDescription" })
-                        @*<textarea id="editContactDescription"></textarea>*@
+                        @Html.TextAreaFor(model => model.Description, 3, 70, new { @id = "editContactDescription", @tabindex = "5" })                      
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row noLeftRigthMargin">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="form-group pull-right">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <input type="button" value="Save" class="btn btn-danger" id="btnEditContact" />
+                        <input type="button" value="Save" class="btn btn-danger" id="btnEditContact" tabindex="6"/>
                     </div>
                 </div>
             </div>

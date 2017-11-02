@@ -5,9 +5,9 @@
 }
 
 @Html.Partial("Delete")
-<div class="jumbotron lessPadding col-lg-12 col-sm-12 col-md-12">
+<div class="jumbotron lessPadding noBottomMargin col-lg-12 col-sm-12 col-md-12">
     <div class="col-lg-6 col-md-6 col-sm-6">
-        <label class="text-info">Create a New Contact for the application here</label>
+        <h4 class="text-info">Create a New Contact for the application here</h4>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 text-right">
         @Html.ActionLink("New Contact", "Add", null, new { @class = "btn btn-danger", id="newContact" })
@@ -16,47 +16,51 @@
 
 <div>
     <table class="col-lg-12 col-sm-12 col-md-12 table table-striped">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().BirthDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().ContactType.Name)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr id="row">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BirthDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContactType.Name)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { contactId = item.Id }, new { @class ="btn btn-success"}) 
-                    @Html.ActionLink("Delete", "Delete", null, new { title = item.Name, id = item.Id,  @class = "btn btn-warning deleteContact" })
-                </td>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().BirthDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().ContactType.Name)
+                </th>
+                <th></th>
             </tr>
-        }
+        <thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="row">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BirthDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactType.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { contactId = item.Id }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Delete", "Delete", null, new { title = item.Name, id = item.Id, @class = "btn btn-warning deleteContact" })
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>
 
 @section Scripts{
     <script src="~/Scripts/created/globalMethods.js"></script>
     <script src="~/Scripts/created/deleteContact.js"></script>
+    <script src="~/Scripts/created/paginate.js"></script>
 }

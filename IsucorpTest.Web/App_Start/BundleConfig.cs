@@ -31,6 +31,7 @@ namespace IsucorpTest.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                         "~/Content/site.css",
+                        "~/Content/paginate.css",
                         "~/Content/themes/base/core.css",
                         "~/Content/themes/base/theme.css",
                         "~/Content/themes/base/jquery-ui.css",

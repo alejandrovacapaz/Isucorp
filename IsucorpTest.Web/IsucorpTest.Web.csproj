@@ -232,6 +232,7 @@
     <Content Include="Content\Images\isu1.jpg" />
     <Content Include="Content\Images\isu2.jpg" />
     <Content Include="Content\Images\isu2.png" />
+    <Content Include="Content\paginate.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -298,6 +299,7 @@
     <Content Include="Scripts\created\deleteContact.js" />
     <Content Include="Scripts\created\editContact.js" />
     <Content Include="Scripts\created\globalMethods.js" />
+    <Content Include="Scripts\created\paginate.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
