@@ -41,5 +41,6 @@ namespace IsucorpTest.Model.ViewModel
         public List<ContactTypeViewModel> ListContactTypes { get; set; }
         [AllowHtml]
         public string Description { get; set; }
+        public string BirthDateString { get; set; }
     }
 }

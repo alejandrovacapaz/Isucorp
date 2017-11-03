@@ -300,6 +300,8 @@
     <Content Include="Scripts\created\editContact.js" />
     <Content Include="Scripts\created\globalMethods.js" />
     <Content Include="Scripts\created\paginate.js" />
+    <Content Include="Scripts\created\searchElements.js" />
+    <Content Include="Scripts\created\sortElements.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -308,6 +310,7 @@
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\jquery.sortElements.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

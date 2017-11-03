@@ -1,6 +1,7 @@
 ﻿var today = new Date();
 $("#birthDate").datepicker({ dateFormat: "'Birth Date: ' MM-mm-dd-yy" });
 $('#birthDate').datepicker("setDate", today);
+$("#birthDate").datepicker({ maxDate: today });
 $("#phoneNumber").mask("(99) 9999-9999");
 
 tinymce.init({
@@ -18,7 +19,6 @@ tinymce.init({
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
         '//www.tinymce.com/css/codepen.min.css'
     ],
-    tabindex : 5
 });
 
 $(document).ready(function () {
@@ -38,11 +38,11 @@ $('#btnAddContact').on("click",
         if (contactName === "") {
             $("#clientErrors").append('<label class="text-danger">Insert Contact Name</label></br>');
         }
-        if (contactName.length <= 3 || contactName.length > 30) {
+        if (contactName.length < 3 || contactName.length > 30) {
             $("#clientErrors").append('<label class="text-danger">Name should be between 3 and 30 characters</label></br>');
         }
-        if (DatetoString(contactBirthDate) === DatetoString(today)) {
-            $("#clientErrors").append('<label class="text-danger">Review Birth Date, it is today\'s date</label>');
+        if (DatetoString(contactBirthDate) === DatetoString(today) || contactBirthDate > today) {
+            $("#clientErrors").append('<label class="text-danger">Review Birth Date, it is wrong </label>');
         }
         else {
             $("#clientErrors").hide();
@@ -50,9 +50,10 @@ $('#btnAddContact').on("click",
                 Id: 0,
                 Name: contactName,
                 PhoneNumber: $("#phoneNumber").val().trim(),
-                BirthDate: $('#birthDate').datepicker({ dateFormat: 'mm-dd-yy' }).val(),
+                BirthDate: $('#birthDate').datepicker("getDate"),
                 ContactTypeId: parseInt($("#ContactTypeId").val().trim()),
-                Description: tinymce.get('contactDescription').getContent()
+                Description: tinymce.get('contactDescription').getContent(),
+                BirthDateString: DatetoString($('#birthDate').datepicker("getDate"))
             }
             $.ajax({
                 type: 'POST',

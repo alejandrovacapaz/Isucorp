@@ -14,9 +14,10 @@ namespace IsucorpTest.Model.DBModel
             Id = contact.Id;
             Name = contact.Name;
             PhoneNumber = contact.PhoneNumber;
-            BirthDate = contact.BirthDate;
             ContactTypeId = contact.ContactTypeId;
             Description = contact.Description;
+            var dueDateSplit = contact.BirthDateString.Split('/');
+            BirthDate = new DateTime(Convert.ToInt16(dueDateSplit[2]), Convert.ToInt16(dueDateSplit[0]), Convert.ToInt16(dueDateSplit[1]));
         }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
