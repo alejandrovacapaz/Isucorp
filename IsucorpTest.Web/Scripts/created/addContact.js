@@ -1,7 +1,6 @@
 ﻿var today = new Date();
-$("#birthDate").datepicker({ dateFormat: "'Birth Date: ' MM-mm-dd-yy" });
+$("#birthDate").datepicker({ maxDate: new Date, dateFormat: "'Birth Date: ' MM-mm-dd-yy" });
 $('#birthDate').datepicker("setDate", today);
-$("#birthDate").datepicker({ maxDate: today });
 $("#phoneNumber").mask("(99) 9999-9999");
 
 tinymce.init({
@@ -18,7 +17,7 @@ tinymce.init({
     content_css: [
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
         '//www.tinymce.com/css/codepen.min.css'
-    ],
+    ]
 });
 
 $(document).ready(function () {

@@ -1,6 +1,6 @@
 ﻿var today = new Date();
 var birthDate = toDate($("#editBirthDate").val());
-$("#editBirthDate").datepicker({ dateFormat: "'Birth Date: ' MM-mm-dd-yy" });
+$("#editBirthDate").datepicker({ maxDate: new Date, dateFormat: "'Birth Date: ' MM-mm-dd-yy" });
 $('#editBirthDate').datepicker("setDate", birthDate);
 $("#editPhoneNumber").mask("(99) 9999-9999");
 
