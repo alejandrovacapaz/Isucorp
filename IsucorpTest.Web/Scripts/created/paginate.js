@@ -16,9 +16,11 @@ $("#resultPerPage").keyup(function () {
         ($("#resultPerPage").val("7"));       
 });
 
+
 $('table.table-striped').each(function () {
     var currentPage = 0;
     var $table = $(this);
+    $("div.pager").remove();
     $table.bind('repaginate', function () {
         $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
     });
@@ -44,6 +46,7 @@ function paginate(num) {
         var currentPage = 0;
         var numPerPage = num || 7;
         var $table = $(this);
+        $("div.pager").remove();
         $table.bind('repaginate', function () {
             $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
         });

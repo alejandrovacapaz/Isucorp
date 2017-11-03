@@ -104,8 +104,14 @@
 
 @section Scripts{
     <script src="~/Scripts/created/globalMethods.js"></script>
-    <script src="~/Scripts/created/deleteContact.js"></script>    
+    <script src="~/Scripts/created/deleteContact.js"></script>  
     <script src="~/Scripts/jquery.sortElements.js"></script>
+    <script src="~/Scripts/created/sortElements.js"></script>
     <script src="~/Scripts/created/paginate.js"></script>
     <script src="~/Scripts/created/searchElements.js"></script>
+    <script>
+        $("span.page-number").click(function () {
+            $("#searchElement").val("");
+        });
+    </script>
 }
