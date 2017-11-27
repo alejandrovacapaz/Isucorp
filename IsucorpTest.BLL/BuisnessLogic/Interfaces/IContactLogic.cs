@@ -1,4 +1,4 @@
-﻿using IsucorpTest.Model.ViewModel;
+﻿using IsucorpTest.ViewModel;
 using System.Collections.Generic;
 
 namespace IsucorpTest.BLL.BuisnessLogic.Interfaces

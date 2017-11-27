@@ -1,7 +1,7 @@
 ﻿using IsucorpTest.BLL.BuisnessLogic.Interfaces;
 using IsucorpTest.DAL.Repositories.Interfaces;
 using IsucorpTest.Model.DBModel;
-using IsucorpTest.Model.ViewModel;
+using IsucorpTest.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace IsucorpTest.BLL.BuisnessLogic
         {
             try
             {
-                return _contactRepository.Add(new Contact(contact)) > 0;
+                return _contactRepository.Add(contact.GetContact()) > 0;
             }
             catch (Exception)
             {
@@ -33,7 +33,7 @@ namespace IsucorpTest.BLL.BuisnessLogic
         {
             try
             {
-                _contactRepository.Update(new Contact(contact));
+                _contactRepository.Update(contact.GetContact());
                 return true;
             }
             catch (Exception)
@@ -70,7 +70,8 @@ namespace IsucorpTest.BLL.BuisnessLogic
 
         public ContactViewModel GetContactById(int contactId)
         {
-            return new ContactViewModel(_contactRepository.FindById(contactId));
+            return new 
+                ContactViewModel(_contactRepository.FindById(contactId));
         }
     }
 }

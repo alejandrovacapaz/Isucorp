@@ -8,6 +8,42 @@ namespace IsucorpTest.DAL.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Contacts",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        PhoneNumber = c.String(),
+                        BirthDate = c.DateTime(nullable: false),
+                        ContactTypeId = c.Int(nullable: false),
+                        Description = c.String(),
+                        CreatedByName = c.String(),
+                        CreatedById = c.String(),
+                        CreatedDate = c.DateTime(nullable: false),
+                        ModifiedByName = c.String(),
+                        ModifiedById = c.String(),
+                        ModifiedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.ContactTypes", t => t.ContactTypeId, cascadeDelete: true)
+                .Index(t => t.ContactTypeId);
+            
+            CreateTable(
+                "dbo.ContactTypes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        CreatedByName = c.String(),
+                        CreatedById = c.String(),
+                        CreatedDate = c.DateTime(nullable: false),
+                        ModifiedByName = c.String(),
+                        ModifiedById = c.String(),
+                        ModifiedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -35,10 +71,6 @@ namespace IsucorpTest.DAL.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Description = c.String(),
-                        AdminEnabled = c.Boolean(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -87,17 +119,21 @@ namespace IsucorpTest.DAL.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Contacts", "ContactTypeId", "dbo.ContactTypes");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Contacts", new[] { "ContactTypeId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.ContactTypes");
+            DropTable("dbo.Contacts");
         }
     }
 }

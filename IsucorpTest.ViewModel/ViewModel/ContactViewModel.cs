@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace IsucorpTest.Model.ViewModel
+namespace IsucorpTest.ViewModel
 {
     public class ContactViewModel
     {
@@ -22,6 +22,20 @@ namespace IsucorpTest.Model.ViewModel
             ContactTypeId = contact.ContactTypeId;
             ContactType = new ContactTypeViewModel(contact.ContactType);
             Description = contact.Description;
+        }
+
+        public Contact GetContact()
+        {
+            var dueDateSplit = BirthDateString.Split('/');
+            return new Contact
+            {
+                Id = Id,
+                Name = Name,
+                PhoneNumber = PhoneNumber,
+                ContactTypeId = ContactTypeId,
+                Description = Description,            
+                BirthDate = new DateTime(Convert.ToInt16(dueDateSplit[2]), Convert.ToInt16(dueDateSplit[0]), Convert.ToInt16(dueDateSplit[1]))
+            };
         }
 
         [Required]

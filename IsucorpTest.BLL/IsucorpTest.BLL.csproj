@@ -138,10 +138,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLUnityExtension.cs" />
-    <Compile Include="BuisnessLogic\AuthLogic.cs" />
     <Compile Include="BuisnessLogic\ContactLogic.cs" />
     <Compile Include="BuisnessLogic\ContactTypeLogic.cs" />
-    <Compile Include="BuisnessLogic\Interfaces\IAuthLogic.cs" />
     <Compile Include="BuisnessLogic\Interfaces\IContactLogic.cs" />
     <Compile Include="BuisnessLogic\Interfaces\IContactTypeLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +160,10 @@
     <ProjectReference Include="..\IsucorpTest.Model\IsucorpTest.Model.csproj">
       <Project>{CEF65A03-7032-4691-B446-859849918E91}</Project>
       <Name>IsucorpTest.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IsucorpTest.ViewModel\IsucorpTest.ViewModel.csproj">
+      <Project>{c99fc472-982b-4000-9bad-47e6cf5f85be}</Project>
+      <Name>IsucorpTest.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

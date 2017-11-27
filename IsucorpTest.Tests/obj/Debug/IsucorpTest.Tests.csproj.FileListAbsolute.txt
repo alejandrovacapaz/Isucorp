@@ -25,3 +25,16 @@ D:\IsucorpTest\IsucorpTest\IsucorpTest\IsucorpTest.Tests\bin\Debug\Microsoft.Pra
 D:\IsucorpTest\IsucorpTest\IsucorpTest\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
 D:\IsucorpTest\IsucorpTest\IsucorpTest\IsucorpTest.Tests\obj\Debug\IsucorpTest.Tests.dll
 D:\IsucorpTest\IsucorpTest\IsucorpTest\IsucorpTest.Tests\obj\Debug\IsucorpTest.Tests.pdb
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\IsucorpTest.Tests.dll
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\IsucorpTest.Tests.pdb
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+D:\Isucorp\IsucorpTest.Tests\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Isucorp\IsucorpTest.Tests\obj\Debug\IsucorpTest.Tests.dll
+D:\Isucorp\IsucorpTest.Tests\obj\Debug\IsucorpTest.Tests.pdb

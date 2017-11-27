@@ -10,7 +10,6 @@ namespace IsucorpTest.BLL
         protected override void Initialize()
         {
             Container.AddNewExtension<DALUnityExtension>();
-            Container.RegisterType<IAuthLogic, AuthLogic>();
             Container.RegisterType<IContactLogic, ContactLogic>();
             Container.RegisterType<IContactTypeLogic, ContactTypeLogic>();
         }

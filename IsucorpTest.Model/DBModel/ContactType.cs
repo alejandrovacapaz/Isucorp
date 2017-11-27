@@ -1,6 +1,4 @@
-﻿using IsucorpTest.Model.ViewModel;
-
-namespace IsucorpTest.Model.DBModel
+﻿namespace IsucorpTest.Model.DBModel
 {
     public class ContactType : BaseEntity
     {
@@ -9,11 +7,11 @@ namespace IsucorpTest.Model.DBModel
             
         }
 
-        public ContactType(ContactTypeViewModel contactType)
-        {
-            Id = contactType.Id;
-            Name = contactType.Name;
-        }
+        //public ContactType(ContactTypeViewModel contactType)
+        //{
+        //    Id = contactType.Id;
+        //    Name = contactType.Name;
+        //}
 
         public string Name { get; set; }
     }

@@ -10,11 +10,11 @@ using Microsoft.AspNet.Identity;
 
 namespace IsucorpTest.DAL
 {
-    public class IsucorpTestContext : IdentityDbContext<AuthUser>
+    public class IsucorpTestContext : IdentityDbContext
     {
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<ContactType> ContactTypes { get; set; }
-        public IsucorpTestContext() : base("IsucorpTest.DAL.IsucorpTestContext", throwIfV1Schema: false)
+        public IsucorpTestContext() : base("IsucorpTest.DAL.IsucorpTestContext")
         {
             Configuration.ProxyCreationEnabled = true;
             Configuration.LazyLoadingEnabled = true;

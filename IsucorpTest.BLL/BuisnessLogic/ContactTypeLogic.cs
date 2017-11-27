@@ -3,7 +3,7 @@ using System.Linq;
 using IsucorpTest.BLL.BuisnessLogic.Interfaces;
 using IsucorpTest.DAL.Repositories.Interfaces;
 using IsucorpTest.Model.DBModel;
-using IsucorpTest.Model.ViewModel;
+using IsucorpTest.ViewModel;
 
 namespace IsucorpTest.BLL.BuisnessLogic
 {

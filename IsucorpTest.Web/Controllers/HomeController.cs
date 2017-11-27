@@ -1,5 +1,5 @@
 ﻿using IsucorpTest.BLL.BuisnessLogic.Interfaces;
-using IsucorpTest.Model.ViewModel;
+using IsucorpTest.ViewModel;
 using System.Web.Mvc;
 
 namespace IsucorpTest.Web.Controllers

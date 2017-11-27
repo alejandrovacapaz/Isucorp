@@ -1,8 +1,4 @@
-using IsucorpTest.DAL.IdentityExtensions;
 using IsucorpTest.Model.DBModel;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin.Security.DataProtection;
 
 namespace IsucorpTest.DAL.Migrations
 {
@@ -53,51 +49,6 @@ namespace IsucorpTest.DAL.Migrations
                 context.Contacts.Add(new Contact { Name = "Axl Rose", PhoneNumber = "(01) 7777-7776", BirthDate = new System.DateTime(1986, 10, 1), ContactTypeId = 3, ContactType = context.ContactTypes.First(x => x.Id == 3) });
             }
             context.SaveChanges();
-        }
-
-        private void InitialRoles(IsucorpTestContext context)
-        {
-            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-
-            // Admin
-            if (!RoleManager.RoleExists(Core.Constants.RoleName_Admin))
-            {
-                RoleManager.Create(new IdentityRole(Core.Constants.RoleName_Admin));
-            }
-
-            // User
-            if (!RoleManager.RoleExists(Core.Constants.RoleName_User))
-            {
-                RoleManager.Create(new IdentityRole(Core.Constants.RoleName_User));
-            }
-        }
-
-        private void InitialAdmin(IsucorpTestContext context)
-        {
-            var userManager = new GPUserManager(context, new DpapiDataProtectionProvider("Default Provider"), new UserStore<AuthUser>(context));
-
-            if (userManager.FindByEmail(Core.Constants.DefaultAdmin_Email) != null)
-                return;
-
-            // Create and save user
-            AuthUser superAdmin = new AuthUser
-            {
-                Email = Core.Constants.DefaultAdmin_Email,
-                EmailConfirmed = true,
-                UserName = Core.Constants.DefaultAdmin_Email
-            };
-
-            var result = userManager.Create(superAdmin, Core.Constants.DefaultAdmin_Password);
-
-            // Get and assign admin role Role
-            if (result.Succeeded)
-            {
-                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-                var adminRole = roleManager.FindByName(Core.Constants.RoleName_Admin);
-
-                var sa = userManager.FindByEmail(Core.Constants.DefaultAdmin_Email);
-                userManager.AddToRole(sa.Id, Core.Constants.RoleName_Admin);
-            }
         }
     }
 }

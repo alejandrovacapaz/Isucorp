@@ -124,16 +124,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBModel\AuthUser.cs" />
     <Compile Include="DBModel\BaseEntity.cs" />
     <Compile Include="DBModel\Contact.cs" />
     <Compile Include="DBModel\ContactType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\AuthUserViewModel.cs" />
-    <Compile Include="ViewModel\ContactTypeViewModel.cs" />
-    <Compile Include="ViewModel\ContactViewModel.cs" />
-    <Compile Include="ViewModel\IdentityViewModel.cs" />
-    <Compile Include="ViewModel\ResultPasswordResult.cs" />
     <Compile Include="WebApiModel\ApiResult.cs" />
     <Compile Include="WebApiModel\PasswordCheck.cs" />
     <Compile Include="WebApiModel\ValidateEmailRequest.cs" />
