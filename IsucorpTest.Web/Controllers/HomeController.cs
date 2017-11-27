@@ -1,5 +1,7 @@
 ﻿using IsucorpTest.BLL.BuisnessLogic.Interfaces;
 using IsucorpTest.ViewModel;
+using System;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IsucorpTest.Web.Controllers
@@ -69,6 +71,33 @@ namespace IsucorpTest.Web.Controllers
         {
             var result = _contactLogic.Delete(contactId);
             return Json(new { success = result });
+        }
+
+        [AllowAnonymous]
+        public ActionResult LanguageEnglish()
+        {
+            var cookie = System.Web.HttpContext.Current.Request.Cookies["CultureInfo"] ?? new HttpCookie("CultureInfo");
+            cookie.Value = "en-US";
+            cookie.Expires = DateTime.Now.AddDays(1d);
+            Response.Cookies.Add(cookie);
+            if (Request.UrlReferrer != null)
+            {
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+            return RedirectToAction("Index", "Home");
+        }
+        [AllowAnonymous]
+        public ActionResult LanguageSpanish()
+        {
+            var cookie = System.Web.HttpContext.Current.Request.Cookies["CultureInfo"] ?? new HttpCookie("CultureInfo");
+            cookie.Value = "es-ES";
+            cookie.Expires = DateTime.Now.AddDays(1d);
+            Response.Cookies.Add(cookie);
+            if (Request.UrlReferrer != null)
+            {
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }

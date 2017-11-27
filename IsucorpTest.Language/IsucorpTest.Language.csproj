@@ -45,12 +45,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContactEntity.resx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ContactEntity.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactEntity.en-US.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Entities\ContactEntity.en-US.resx" />
+    <EmbeddedResource Include="Entities\ContactEntity.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContactEntity.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entities\ContactEntity.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ContactEntity.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

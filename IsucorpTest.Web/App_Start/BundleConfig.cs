@@ -25,6 +25,7 @@ namespace IsucorpTest.Web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/created").Include(
+                      "~/Scripts/created/language.js",
                       "~/Scripts/created/globalMethods.js"));
                       
 

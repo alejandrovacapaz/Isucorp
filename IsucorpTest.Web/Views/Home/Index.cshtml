@@ -1,4 +1,5 @@
-﻿@model IEnumerable<IsucorpTest.ViewModel.ContactViewModel>
+﻿@using IsucorpTest.Language.Entities
+@model IEnumerable<IsucorpTest.ViewModel.ContactViewModel>
 @{ 
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +8,7 @@
 @Html.Partial("Delete")
 <div class="jumbotron lessPadding noBottomMargin col-lg-12 col-sm-12 col-md-12">
     <div class="col-lg-6 col-md-6 col-sm-6">
-        <h4 class="text-info">Create a New Contact for the application here</h4>
+        <h4 class="text-info">@ContactEntity.ContactInfo</h4>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 text-right">
         @Html.ActionLink("New Contact", "Add", null, new { @class = "btn btn-danger", id="newContact" })

@@ -232,6 +232,8 @@
     <Content Include="Content\Images\isu1.jpg" />
     <Content Include="Content\Images\isu2.jpg" />
     <Content Include="Content\Images\isu2.png" />
+    <Content Include="Content\Images\sp.jpg" />
+    <Content Include="Content\Images\uk.jpg" />
     <Content Include="Content\paginate.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -299,6 +301,7 @@
     <Content Include="Scripts\created\deleteContact.js" />
     <Content Include="Scripts\created\editContact.js" />
     <Content Include="Scripts\created\globalMethods.js" />
+    <Content Include="Scripts\created\language.js" />
     <Content Include="Scripts\created\paginate.js" />
     <Content Include="Scripts\created\searchElements.js" />
     <Content Include="Scripts\created\sortElements.js" />
@@ -438,6 +441,10 @@
     <ProjectReference Include="..\IsucorpTest.BLL\IsucorpTest.BLL.csproj">
       <Project>{67EBE8B3-EEB2-4668-995A-F04E28C41252}</Project>
       <Name>IsucorpTest.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IsucorpTest.Language\IsucorpTest.Language.csproj">
+      <Project>{cbcb4829-b1cd-4fd5-90ac-3716cc9e008d}</Project>
+      <Name>IsucorpTest.Language</Name>
     </ProjectReference>
     <ProjectReference Include="..\IsucorpTest.Model\IsucorpTest.Model.csproj">
       <Project>{cef65a03-7032-4691-b446-859849918e91}</Project>
