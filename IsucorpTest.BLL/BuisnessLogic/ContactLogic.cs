@@ -45,8 +45,17 @@ namespace IsucorpTest.BLL.BuisnessLogic
         {
             try
             {
-                _contactRepository.Update(contact.GetContact());
-                return true;
+                var dueDateSplit = contact.BirthDateString.Split('/');
+                contact.BirthDate = new DateTime(Convert.ToInt16(dueDateSplit[2]), Convert.ToInt16(dueDateSplit[0]), Convert.ToInt16(dueDateSplit[1]));
+                var id = new SqlParameter("@Id", contact.Id);
+                var name = new SqlParameter("@Name", contact.Name);
+                var phoneNumber = new SqlParameter("@PhoneNumber", contact.PhoneNumber);
+                var birthDate = new SqlParameter("@BirthDate", contact.BirthDate);
+                var contactTypeId = new SqlParameter("@ContactTypeId", contact.ContactTypeId);
+                var description = new SqlParameter("@Description", contact.Description);
+                return _contactRepository.ExecuteStoredProcedure("dbo.sp_UpdateContact @Id, @Name, @PhoneNumber" +
+                    ", @BirthDate, @ContactTypeId, @Description", id, name, phoneNumber,
+                    birthDate, contactTypeId, description);       
             }
             catch (Exception)
             {
@@ -58,8 +67,8 @@ namespace IsucorpTest.BLL.BuisnessLogic
         {
             try
             {
-                _contactRepository.Delete(contactId);
-                return true;
+                var id = new SqlParameter("@Id", contactId);
+                return _contactRepository.ExecuteStoredProcedure("dbo.sp_DeleteContact @Id", id);
             }
             catch (Exception)
             {
