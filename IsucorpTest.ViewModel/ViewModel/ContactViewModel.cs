@@ -47,9 +47,11 @@ namespace IsucorpTest.ViewModel
         [StringLength(20, MinimumLength = 0, ErrorMessage = "Phone max lenght is 20 characters")]
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
+        [Required]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Birth Date")]
         public DateTime BirthDate { get; set; }
+        [Required]
         public int ContactTypeId { get; set; }
         public virtual ContactTypeViewModel ContactType { get; set; }
         public List<ContactTypeViewModel> ListContactTypes { get; set; }

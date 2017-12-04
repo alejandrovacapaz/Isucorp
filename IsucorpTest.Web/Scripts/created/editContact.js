@@ -34,18 +34,22 @@ var data;
 $('#btnEditContact').on("click",
     function () {
         $("#editClientErrors").empty();
+        var error = false;
         var contactName = $("#editContactName").val().trim();
         var contactBirthDate = $("#editBirthDate").datepicker("getDate");
         if (contactName === "") {
             $("#editClientErrors").append('<label class="text-danger">Insert Contact Name</label></br>');
+            error = true;
         }
         if (contactName.length < 3) {
             $("#editClientErrors").append('<label class="text-danger">Name should be at least 3 characters</label></br>');
+            error = true;
         }
         if (DatetoString(contactBirthDate) === DatetoString(today) || contactBirthDate > today) {
             $("#editClientErrors").append('<label class="text-danger">Review Birth Date, it is wrong </label>');
+            error = true;
         }
-        else {
+        else if (!error) {
             $("#editClientErrors").hide();
             data = {
                 Id: contactId,

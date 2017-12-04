@@ -112,5 +112,18 @@ namespace IsucorpTest.DAL.Repositories
         {
             return dbset.FirstOrDefault(x => x.Id == idEntity);
         }
+
+        public bool ExecuteStoredProcedure(string stroredProcedure, params object[] parameters)
+        {
+            try
+            {
+                _context.Database.ExecuteSqlCommand(stroredProcedure, parameters);              
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

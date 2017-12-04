@@ -32,18 +32,22 @@ var data;
 $('#btnAddContact').on("click",
     function () {
         $("#clientErrors").empty();
+        var error = false;
         var contactName = $("#contactName").val().trim();
         var contactBirthDate = $("#birthDate").datepicker("getDate");
         if (contactName === "") {
             $("#clientErrors").append('<label class="text-danger">Insert Contact Name</label></br>');
+            error = true;
         }
         if (contactName.length < 3 || contactName.length > 30) {
             $("#clientErrors").append('<label class="text-danger">Name should be between 3 and 30 characters</label></br>');
+            error = true;
         }
         if (DatetoString(contactBirthDate) === DatetoString(today) || contactBirthDate > today) {
             $("#clientErrors").append('<label class="text-danger">Review Birth Date, it is wrong </label>');
+            error = true;
         }
-        else {
+        else if (!error){
             $("#clientErrors").hide();
             data = {
                 Id: 0,
