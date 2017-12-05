@@ -1,7 +1,8 @@
-﻿using IsucorpTest.Model.DBModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using IsucorpTest.Language.Entities;
+using IsucorpTest.Model.DBModel;
 
-namespace IsucorpTest.ViewModel
+namespace IsucorpTest.ViewModel.ViewModel
 {
     public class ContactTypeViewModel
     {
@@ -17,7 +18,7 @@ namespace IsucorpTest.ViewModel
         }      
 
         public int Id { get; set; }
-        [Display(Name = "Contact Type")]
+        [Display(Name = "ContactType", ResourceType = typeof(ContactTypeEntity))]
         public string Name { get; set; }
     }
 }

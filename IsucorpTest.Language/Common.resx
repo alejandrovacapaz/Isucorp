@@ -117,22 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Back" xml:space="preserve">
-    <value>Back to Contact List</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Eliminar</value>
   </data>
-  <data name="BirthDate" xml:space="preserve">
-    <value>Birth Date</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
   </data>
-  <data name="ContactInfo" xml:space="preserve">
-    <value>Create a New Contact for the application here</value>
+  <data name="Go" xml:space="preserve">
+    <value>Go</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Contact Name</value>
+  <data name="ResultsPerPage" xml:space="preserve">
+    <value>Resultador por Página</value>
   </data>
-  <data name="NewContact" xml:space="preserve">
-    <value>New Contact</value>
-  </data>
-  <data name="PhoneNumber" xml:space="preserve">
-    <value>Phone Number</value>
+  <data name="Search" xml:space="preserve">
+    <value>Busqueda</value>
   </data>
 </root>

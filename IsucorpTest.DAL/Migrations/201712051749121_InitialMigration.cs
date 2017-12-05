@@ -12,7 +12,7 @@ namespace IsucorpTest.DAL.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         PhoneNumber = c.String(),
                         BirthDate = c.DateTime(nullable: false),
                         ContactTypeId = c.Int(nullable: false),

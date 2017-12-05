@@ -40,6 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Common.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Common.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Common.en-US.resx</DependentUpon>
+    </Compile>
     <Compile Include="Entities\ContactEntity.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -50,9 +60,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContactEntity.en-US.resx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ContactTypeEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactTypeEntity.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ContactTypeEntity.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactTypeEntity.en-US.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Common.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entities\ContactEntity.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ContactEntity.en-US.Designer.cs</LastGenOutput>
@@ -60,6 +88,14 @@
     <EmbeddedResource Include="Entities\ContactEntity.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ContactEntity.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\ContactTypeEntity.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContactTypeEntity.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\ContactTypeEntity.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContactTypeEntity.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

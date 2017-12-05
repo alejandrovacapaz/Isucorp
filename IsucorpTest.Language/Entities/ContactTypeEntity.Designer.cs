@@ -22,14 +22,14 @@ namespace IsucorpTest.Language.Entities {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ContactEntity {
+    public class ContactTypeEntity {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ContactEntity() {
+        internal ContactTypeEntity() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace IsucorpTest.Language.Entities {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IsucorpTest.Language.Entities.ContactEntity", typeof(ContactEntity).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IsucorpTest.Language.Entities.ContactTypeEntity", typeof(ContactTypeEntity).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,11 @@ namespace IsucorpTest.Language.Entities {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Regresar a la Lista de Contactos.
+        ///   Busca una cadena traducida similar a Tipo de Contacto.
         /// </summary>
-        public static string Back {
+        public static string ContactType {
             get {
-                return ResourceManager.GetString("Back", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Fecha de Nacimiento.
-        /// </summary>
-        public static string BirthDate {
-            get {
-                return ResourceManager.GetString("BirthDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Crear un nuevo Contacto para la aplicación aqui.
-        /// </summary>
-        public static string ContactInfo {
-            get {
-                return ResourceManager.GetString("ContactInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Nombre de Contacto.
-        /// </summary>
-        public static string Name {
-            get {
-                return ResourceManager.GetString("Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Nuevo Contacto.
-        /// </summary>
-        public static string NewContact {
-            get {
-                return ResourceManager.GetString("NewContact", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Numero Telefonico.
-        /// </summary>
-        public static string PhoneNumber {
-            get {
-                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+                return ResourceManager.GetString("ContactType", resourceCulture);
             }
         }
     }

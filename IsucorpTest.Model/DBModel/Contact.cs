@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace IsucorpTest.Model.DBModel
 {
@@ -8,7 +9,7 @@ namespace IsucorpTest.Model.DBModel
         {
 
         }
-
+        [Required]
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime BirthDate { get; set; }

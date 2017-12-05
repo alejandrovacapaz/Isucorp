@@ -1,5 +1,6 @@
 ﻿using IsucorpTest.ViewModel;
 using System.Collections.Generic;
+using IsucorpTest.ViewModel.ViewModel;
 
 namespace IsucorpTest.BLL.BuisnessLogic.Interfaces
 {

@@ -1,10 +1,11 @@
-﻿using IsucorpTest.Model.DBModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using IsucorpTest.Language.Entities;
+using IsucorpTest.Model.DBModel;
 
-namespace IsucorpTest.ViewModel
+namespace IsucorpTest.ViewModel.ViewModel
 {
     public class ContactViewModel
     {
@@ -42,14 +43,14 @@ namespace IsucorpTest.ViewModel
         public int Id { get; set; }
         [Required]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Name should be between 3 and 30 characters")]
-        [Display(Name = "Contact Name")]
+        [Display(Name = "Name", ResourceType = typeof(ContactEntity))]
         public string Name { get; set; }
         [StringLength(20, MinimumLength = 0, ErrorMessage = "Phone max lenght is 20 characters")]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "PhoneNumber", ResourceType = typeof(ContactEntity))]
         public string PhoneNumber { get; set; }
         [Required]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Birth Date")]
+        [Display(Name = "BirthDate", ResourceType = typeof(ContactEntity))]
         public DateTime BirthDate { get; set; }
         [Required]
         public int ContactTypeId { get; set; }

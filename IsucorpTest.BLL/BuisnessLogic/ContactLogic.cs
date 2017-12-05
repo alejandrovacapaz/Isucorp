@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using IsucorpTest.ViewModel.ViewModel;
 
 namespace IsucorpTest.BLL.BuisnessLogic
 {

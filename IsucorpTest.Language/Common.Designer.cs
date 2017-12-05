@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IsucorpTest.Language.Entities {
+namespace IsucorpTest.Language {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace IsucorpTest.Language.Entities {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ContactEntity {
+    public class Common {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ContactEntity() {
+        internal Common() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace IsucorpTest.Language.Entities {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IsucorpTest.Language.Entities.ContactEntity", typeof(ContactEntity).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IsucorpTest.Language.Common", typeof(Common).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,47 @@ namespace IsucorpTest.Language.Entities {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Regresar a la Lista de Contactos.
+        ///   Busca una cadena traducida similar a Eliminar.
         /// </summary>
-        public static string Back {
+        public static string Delete {
             get {
-                return ResourceManager.GetString("Back", resourceCulture);
+                return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Fecha de Nacimiento.
+        ///   Busca una cadena traducida similar a Editar.
         /// </summary>
-        public static string BirthDate {
+        public static string Edit {
             get {
-                return ResourceManager.GetString("BirthDate", resourceCulture);
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Crear un nuevo Contacto para la aplicación aqui.
+        ///   Busca una cadena traducida similar a Go.
         /// </summary>
-        public static string ContactInfo {
+        public static string Go {
             get {
-                return ResourceManager.GetString("ContactInfo", resourceCulture);
+                return ResourceManager.GetString("Go", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Nombre de Contacto.
+        ///   Busca una cadena traducida similar a Resultador por Página.
         /// </summary>
-        public static string Name {
+        public static string ResultsPerPage {
             get {
-                return ResourceManager.GetString("Name", resourceCulture);
+                return ResourceManager.GetString("ResultsPerPage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Nuevo Contacto.
+        ///   Busca una cadena traducida similar a Busqueda.
         /// </summary>
-        public static string NewContact {
+        public static string Search {
             get {
-                return ResourceManager.GetString("NewContact", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Numero Telefonico.
-        /// </summary>
-        public static string PhoneNumber {
-            get {
-                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+                return ResourceManager.GetString("Search", resourceCulture);
             }
         }
     }

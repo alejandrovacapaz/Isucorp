@@ -13,7 +13,7 @@ namespace IsucorpTest.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201711270232291_InitialMigration"; }
+            get { return "201712051749121_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

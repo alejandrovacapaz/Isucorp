@@ -126,9 +126,9 @@
   <ItemGroup>
     <Compile Include="DALUnityExtension.cs" />
     <Compile Include="IsucorpTestContext.cs" />
-    <Compile Include="Migrations\201711270232291_InitialMigration.cs" />
-    <Compile Include="Migrations\201711270232291_InitialMigration.Designer.cs">
-      <DependentUpon>201711270232291_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201712051749121_InitialMigration.cs" />
+    <Compile Include="Migrations\201712051749121_InitialMigration.Designer.cs">
+      <DependentUpon>201712051749121_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -154,8 +154,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711270232291_InitialMigration.resx">
-      <DependentUpon>201711270232291_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712051749121_InitialMigration.resx">
+      <DependentUpon>201712051749121_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

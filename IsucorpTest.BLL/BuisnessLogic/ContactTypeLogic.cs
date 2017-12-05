@@ -4,6 +4,7 @@ using IsucorpTest.BLL.BuisnessLogic.Interfaces;
 using IsucorpTest.DAL.Repositories.Interfaces;
 using IsucorpTest.Model.DBModel;
 using IsucorpTest.ViewModel;
+using IsucorpTest.ViewModel.ViewModel;
 
 namespace IsucorpTest.BLL.BuisnessLogic
 {

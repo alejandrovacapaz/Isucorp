@@ -1,8 +1,8 @@
 ﻿using IsucorpTest.BLL.BuisnessLogic.Interfaces;
-using IsucorpTest.ViewModel;
 using System;
 using System.Web;
 using System.Web.Mvc;
+using IsucorpTest.ViewModel.ViewModel;
 
 namespace IsucorpTest.Web.Controllers
 {

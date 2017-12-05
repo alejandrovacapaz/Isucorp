@@ -51,6 +51,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\IsucorpTest.Language\IsucorpTest.Language.csproj">
+      <Project>{CBCB4829-B1CD-4FD5-90AC-3716CC9E008D}</Project>
+      <Name>IsucorpTest.Language</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IsucorpTest.Model\IsucorpTest.Model.csproj">
       <Project>{cef65a03-7032-4691-b446-859849918e91}</Project>
       <Name>IsucorpTest.Model</Name>
