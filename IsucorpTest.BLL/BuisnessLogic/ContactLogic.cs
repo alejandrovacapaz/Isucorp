@@ -92,8 +92,7 @@ namespace IsucorpTest.BLL.BuisnessLogic
 
         public ContactViewModel GetContactById(int contactId)
         {
-            return new 
-                ContactViewModel(_contactRepository.FindById(contactId));
+            return new ContactViewModel(_contactRepository.FindById(contactId));
         }
     }
 }

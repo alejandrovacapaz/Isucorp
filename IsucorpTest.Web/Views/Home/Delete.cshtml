@@ -1,4 +1,6 @@
-﻿<div class="modal fade" id="deleteContact" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+﻿@using IsucorpTest.Language.Entities
+@using IsucorpTest.Language
+<div class="modal fade" id="deleteContact" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,17 +8,17 @@
                         aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title"> Confirm Delete </h4>
+                <h4 class="modal-title"> @Common.ConfirmDelete </h4>
             </div>
             <div class="modal-body">
                 <div class="form-group div-margin-top">
-                    <span style="padding-left: 5%"> Are you sure you want to delete the Contact named: </span>
+                    <span style="padding-left: 5%"> @ContactEntity.MessageConfirmDelete </span>
                     <span style="font-weight: bold" id="deleteContactName"> </span> ?
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn" data-dismiss="modal">Close</button>
-                <button id="btnDeleteContact" class="btn btn-primary start">Delete</button>
+                <button class="btn" data-dismiss="modal">@Common.Close</button>
+                <button id="btnDeleteContact" class="btn btn-primary start">@Common.Delete</button>
             </div>
         </div>
     </div>

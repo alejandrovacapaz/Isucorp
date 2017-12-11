@@ -117,19 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>Confirmar Eliminación</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Eliminar</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Editar</value>
   </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Errores del Contacto</value>
+  </data>
+  <data name="ErrorsMessage" xml:space="preserve">
+    <value>Revisa los Datos</value>
+  </data>
   <data name="Go" xml:space="preserve">
-    <value>Go</value>
+    <value>Ir</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Pagina de Inicio</value>
   </data>
   <data name="ResultsPerPage" xml:space="preserve">
-    <value>Resultador por Página</value>
+    <value>Resultados por Página</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Busqueda</value>
+  </data>
+  <data name="SearchValue" xml:space="preserve">
+    <value>Valor de Búsqueda</value>
   </data>
 </root>

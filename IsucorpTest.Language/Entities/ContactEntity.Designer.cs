@@ -61,6 +61,15 @@ namespace IsucorpTest.Language.Entities {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Error al adicionar el contacto, revisa la información.
+        /// </summary>
+        public static string AddContactError {
+            get {
+                return ResourceManager.GetString("AddContactError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Regresar a la Lista de Contactos.
         /// </summary>
         public static string Back {
@@ -79,6 +88,15 @@ namespace IsucorpTest.Language.Entities {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Revisa la Fecha de Nacimiento, es erronea.
+        /// </summary>
+        public static string BirthDateError {
+            get {
+                return ResourceManager.GetString("BirthDateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Crear un nuevo Contacto para la aplicación aqui.
         /// </summary>
         public static string ContactInfo {
@@ -88,11 +106,74 @@ namespace IsucorpTest.Language.Entities {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nombre Completo del Contacto.
+        /// </summary>
+        public static string ContactName {
+            get {
+                return ResourceManager.GetString("ContactName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al eliminar el contacto, revisa la información.
+        /// </summary>
+        public static string DeleteContactError {
+            get {
+                return ResourceManager.GetString("DeleteContactError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar Contacto.
+        /// </summary>
+        public static string EditContact {
+            get {
+                return ResourceManager.GetString("EditContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al editar el contacto, revisa la información.
+        /// </summary>
+        public static string EditContactError {
+            get {
+                return ResourceManager.GetString("EditContactError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿ Esta seguro de eliminar el contacto de nombre:.
+        /// </summary>
+        public static string MessageConfirmDelete {
+            get {
+                return ResourceManager.GetString("MessageConfirmDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nombre de Contacto.
         /// </summary>
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Insertar Nombre de Usuario.
+        /// </summary>
+        public static string NameError {
+            get {
+                return ResourceManager.GetString("NameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El Nombre de Usuario debe ser entre 3 y 30 caracteres.
+        /// </summary>
+        public static string NameLengthError {
+            get {
+                return ResourceManager.GetString("NameLengthError", resourceCulture);
             }
         }
         

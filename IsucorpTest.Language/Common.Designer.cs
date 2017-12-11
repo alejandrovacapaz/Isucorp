@@ -61,6 +61,24 @@ namespace IsucorpTest.Language {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cerrar.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirmar Eliminación.
+        /// </summary>
+        public static string ConfirmDelete {
+            get {
+                return ResourceManager.GetString("ConfirmDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Eliminar.
         /// </summary>
         public static string Delete {
@@ -79,7 +97,25 @@ namespace IsucorpTest.Language {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Go.
+        ///   Busca una cadena traducida similar a Errores del Contacto.
+        /// </summary>
+        public static string Errors {
+            get {
+                return ResourceManager.GetString("Errors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Revisa los Datos.
+        /// </summary>
+        public static string ErrorsMessage {
+            get {
+                return ResourceManager.GetString("ErrorsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ir.
         /// </summary>
         public static string Go {
             get {
@@ -88,11 +124,29 @@ namespace IsucorpTest.Language {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Resultador por Página.
+        ///   Busca una cadena traducida similar a Pagina de Inicio.
+        /// </summary>
+        public static string HomePage {
+            get {
+                return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Resultados por Página.
         /// </summary>
         public static string ResultsPerPage {
             get {
                 return ResourceManager.GetString("ResultsPerPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guardar.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         
@@ -102,6 +156,15 @@ namespace IsucorpTest.Language {
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Valor de Búsqueda.
+        /// </summary>
+        public static string SearchValue {
+            get {
+                return ResourceManager.GetString("SearchValue", resourceCulture);
             }
         }
     }

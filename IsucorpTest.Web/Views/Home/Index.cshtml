@@ -2,11 +2,12 @@
 @using IsucorpTest.Language
 @model IEnumerable<IsucorpTest.ViewModel.ViewModel.ContactViewModel>
 @{ 
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = Common.HomePage;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @Html.Partial("Delete")
+@Html.Partial("ClientErrors")
 <div class="jumbotron lessPadding noBottomMargin col-lg-12 col-sm-12 col-md-12">
     <div class="col-lg-6 col-md-6 col-sm-6">
         <h4 class="text-info">@ContactEntity.ContactInfo</h4>
@@ -23,7 +24,7 @@
                 <label class="control-label" style="padding-top: 10px"> @Common.Search </label>               
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8">
-                <input id="searchElement" type="text" class="form-control" placeholder="searchValue" tabindex="1">
+                <input id="searchElement" type="text" class="form-control" placeholder="@Common.SearchValue" tabindex="1">
             </div>            
         </div>
     </div>
@@ -112,6 +113,9 @@
     <script src="~/Scripts/created/paginate.js"></script>
     <script src="~/Scripts/created/searchElements.js"></script>
     <script>
+        var DeleteResource = {           
+            DeleteContactError: '@ContactEntity.DeleteContactError'
+        };
         $("span.page-number").click(function () {
             $("#searchElement").val("");
         });

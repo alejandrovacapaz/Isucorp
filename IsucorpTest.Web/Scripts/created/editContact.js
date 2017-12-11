@@ -1,29 +1,23 @@
 ﻿var today = new Date();
 var birthDate = toDate($("#editBirthDate").val());
-$("#editBirthDate").datepicker({ maxDate: new Date, dateFormat: "'Birth Date: ' MM-mm-dd-yy" });
-$('#editBirthDate').datepicker("setDate", birthDate);
-$("#editPhoneNumber").mask("(99) 9999-9999");
-
-tinymce.init({
-    selector: 'textarea',
-    height: 500,
-    theme: 'modern',
-    plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
-    toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-    image_advtab: true,
-    templates: [
-        { title: 'Test template 1', content: 'Test 1' },
-        { title: 'Test template 2', content: 'Test 2' }
-    ],
-    content_css: [
-        '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-        '//www.tinymce.com/css/codepen.min.css'
-    ]    
-});
 
 $(document).ready(function () {   
     $("#editContactType").val(contactTypeId);
     $("#ContactTypeId").val($('#editContactType option:selected').val());
+    var cookies = document.cookie.split(';');
+    cookies.forEach(function (valor, indice) {
+        if (valor.indexOf('CultureInfo') !== -1) {
+            if (valor.indexOf('es-ES') !== -1) {
+                $("#editBirthDate").datepicker({ maxDate: new Date, dateFormat: "'Nacimiento: 'mm-dd-yy" });
+                createTextArea("es");
+            } else {
+                $("#editBirthDate").datepicker({ maxDate: new Date, dateFormat: "'Birth Date: 'mm-dd-yy" });
+                createTextArea("en");
+            }
+        }
+    });
+    $('#editBirthDate').datepicker("setDate", birthDate);
+    $("#editPhoneNumber").mask("(99) 9999-9999");
 });
 
 $('#contactType').change(function () {
@@ -33,24 +27,23 @@ $('#contactType').change(function () {
 var data;
 $('#btnEditContact').on("click",
     function () {
-        $("#editClientErrors").empty();
+        $("#errorsSection").empty();
         var error = false;
         var contactName = $("#editContactName").val().trim();
         var contactBirthDate = $("#editBirthDate").datepicker("getDate");
         if (contactName === "") {
-            $("#editClientErrors").append('<label class="text-danger">Insert Contact Name</label></br>');
+            $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + EditResources.NameError + '</span></br>');
             error = true;
         }
-        if (contactName.length < 3) {
-            $("#editClientErrors").append('<label class="text-danger">Name should be at least 3 characters</label></br>');
+        if (contactName.length < 3 || contactName.length > 30) {
+            $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + EditResources.NameLengthError + '</span></br>');
             error = true;
         }
         if (DatetoString(contactBirthDate) === DatetoString(today) || contactBirthDate > today) {
-            $("#editClientErrors").append('<label class="text-danger">Review Birth Date, it is wrong </label>');
+            $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + EditResources.BirthDateError + '</span>');
             error = true;
         }
-        else if (!error) {
-            $("#editClientErrors").hide();
+        else if (!error) {         
             data = {
                 Id: contactId,
                 Name: contactName,
@@ -66,8 +59,11 @@ $('#btnEditContact').on("click",
                 dataType: 'json',
                 data: { contact: data },
                 success: function (result) {
-                    if (!result.success)
-                        alert("There was an error editing the contact review data");
+                    if (!result.success) {
+                        $("#errorsSection").empty();
+                        $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + EditResources.EditContactError + '</span>');
+                        $('#clientErors').modal('show');
+                    }                                         
                     else
                         GotoIndex();
                 },
@@ -77,5 +73,11 @@ $('#btnEditContact').on("click",
                 }
             });
         }
-        $("#editClientErrors").show();
+        $('#clientErors').modal('show');
     });
+
+// Methods to fix tinyMCE component tab problem, 
+// Get focus after birthDate is blured
+$('#birthDate').blur(function () {
+    tinyMCE.activeEditor.focus();
+});

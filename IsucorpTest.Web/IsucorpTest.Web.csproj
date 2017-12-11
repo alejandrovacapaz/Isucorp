@@ -325,6 +325,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\tinymce\js\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Scripts\tinymce\js\tinymce\langs\es.js" />
     <Content Include="Scripts\tinymce\js\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
     <Content Include="Scripts\tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
@@ -428,6 +429,7 @@
     <Content Include="Scripts\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Shared\ClientErrors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

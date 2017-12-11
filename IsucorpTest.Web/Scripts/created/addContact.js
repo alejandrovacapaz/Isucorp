@@ -1,27 +1,22 @@
 ﻿var today = new Date();
-$("#birthDate").datepicker({ maxDate: new Date, dateFormat: "'Birth Date: ' MM-mm-dd-yy" });
-$('#birthDate').datepicker("setDate", today);
-$("#phoneNumber").mask("(99) 9999-9999");
-
-tinymce.init({
-    selector: 'textarea',
-    height: 500,
-    theme: 'modern',
-    plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
-    toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-    image_advtab: true,
-    templates: [
-        { title: 'Test template 1', content: 'Test 1' },
-        { title: 'Test template 2', content: 'Test 2' }
-    ],
-    content_css: [
-        '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-        '//www.tinymce.com/css/codepen.min.css'
-    ]
-});
 
 $(document).ready(function () {
-    $("#ContactTypeId").val($('#contactType option:selected').val());
+    $("#ContactTypeId").val($('#contactType option:selected').val());    
+    var cookies = document.cookie.split(';');
+    cookies.forEach(function (valor, indice) {
+        if (valor.indexOf('CultureInfo') !== -1) {
+            if (valor.indexOf('es-ES') !== -1) {
+                $("#birthDate").datepicker({ maxDate: new Date, dateFormat: "'Nacimiento: 'mm-dd-yy" });
+                createTextArea("es");
+            } else {
+                $("#birthDate").datepicker({ maxDate: new Date, dateFormat: "'Birth Date: 'mm-dd-yy" });
+                createTextArea("en");
+            }
+        }
+    });    
+    $('#birthDate').datepicker("setDate", today);
+    $("#phoneNumber").mask("(99) 9999-9999");
+    $("#contactName").focus();
 });
 
 $('#contactType').change(function () {
@@ -31,24 +26,23 @@ $('#contactType').change(function () {
 var data;
 $('#btnAddContact').on("click",
     function () {
-        $("#clientErrors").empty();
+        $("#errorsSection").empty();
         var error = false;
         var contactName = $("#contactName").val().trim();
         var contactBirthDate = $("#birthDate").datepicker("getDate");
         if (contactName === "") {
-            $("#clientErrors").append('<label class="text-danger">Insert Contact Name</label></br>');
+            $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + Resources.NameError + '</span></br>');
             error = true;
         }
         if (contactName.length < 3 || contactName.length > 30) {
-            $("#clientErrors").append('<label class="text-danger">Name should be between 3 and 30 characters</label></br>');
+            $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + Resources.NameLengthError + '</span></br>');
             error = true;
         }
         if (DatetoString(contactBirthDate) === DatetoString(today) || contactBirthDate > today) {
-            $("#clientErrors").append('<label class="text-danger">Review Birth Date, it is wrong </label>');
+            $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + Resources.BirthDateError + '</span>');
             error = true;
         }
-        else if (!error){
-            $("#clientErrors").hide();
+        else if (!error){          
             data = {
                 Id: 0,
                 Name: contactName,
@@ -64,8 +58,11 @@ $('#btnAddContact').on("click",
                 dataType: 'json',
                 data: { contact: data },
                 success: function (result) {
-                    if (!result.success)
-                        alert("There was an error adding the contact review data");
+                    if (!result.success) {
+                        $("#errorsSection").empty();
+                        $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + Resources.AddContactError + '</span>');
+                        $('#clientErors').modal('show');
+                    }                       
                     else
                         GotoIndex();
                 },
@@ -74,6 +71,20 @@ $('#btnAddContact').on("click",
                     console.log(errorThrown);
                 }
             });
-        }
-        $("#clientErrors").show();
+        }      
+        $('#clientErors').modal('show');
     });
+
+// Methods to fix tinyMCE component tab problem, 
+// Get focus after birthDate is blured
+$('#birthDate').blur(function () {
+    tinyMCE.activeEditor.focus();
+});
+
+
+
+
+
+
+
+

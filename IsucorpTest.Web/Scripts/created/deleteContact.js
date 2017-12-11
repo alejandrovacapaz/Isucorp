@@ -17,8 +17,11 @@ $('#btnDeleteContact').on("click",
             data: { contactId: id },
             success: function (result) {
                 $('#deleteContact').modal('hide');
-                if (!result.success)
-                    alert("There was an error deleting the Contact, please try again");
+                if (!result.success) {
+                    $("#errorsSection").empty();
+                    $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + DeleteResource.DeleteContactError + '</span>');
+                    $('#clientErors').modal('show');
+                }
                 else
                     GotoIndex();
             },
