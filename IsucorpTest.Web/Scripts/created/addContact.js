@@ -42,7 +42,7 @@ $('#btnAddContact').on("click",
             $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + Resources.BirthDateError + '</span>');
             error = true;
         }
-        else if (!error){          
+        if (!error){          
             data = {
                 Id: 0,
                 Name: contactName,
@@ -71,8 +71,10 @@ $('#btnAddContact').on("click",
                     console.log(errorThrown);
                 }
             });
-        }      
-        $('#clientErors').modal('show');
+        }
+        else {
+            $('#clientErors').modal('show');
+        }        
     });
 
 // Methods to fix tinyMCE component tab problem, 
@@ -81,7 +83,9 @@ $('#birthDate').blur(function () {
     tinyMCE.activeEditor.focus();
 });
 
-
+$("#contactName").keydown(function (e) {
+    onlyLetters(e);
+});
 
 
 

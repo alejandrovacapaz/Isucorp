@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsucorpTest.DAL", "IsucorpT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsucorpTest.Model", "IsucorpTest.Model\IsucorpTest.Model.csproj", "{CEF65A03-7032-4691-B446-859849918E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsucorpTest.Tests", "IsucorpTest.Tests\IsucorpTest.Tests.csproj", "{1A4DC093-FE02-48AD-967E-635DCF6C2590}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsucorpTest.Web", "IsucorpTest.Web\IsucorpTest.Web.csproj", "{1589C9E7-4D97-470D-9C55-46C42EEC4070}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsucorpTest.Language", "IsucorpTest.Language\IsucorpTest.Language.csproj", "{CBCB4829-B1CD-4FD5-90AC-3716CC9E008D}"
@@ -59,14 +57,6 @@ Global
 		{CEF65A03-7032-4691-B446-859849918E91}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CEF65A03-7032-4691-B446-859849918E91}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
 		{CEF65A03-7032-4691-B446-859849918E91}.Staging|Any CPU.Build.0 = Staging|Any CPU
-		{1A4DC093-FE02-48AD-967E-635DCF6C2590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A4DC093-FE02-48AD-967E-635DCF6C2590}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A4DC093-FE02-48AD-967E-635DCF6C2590}.Local|Any CPU.ActiveCfg = Local|Any CPU
-		{1A4DC093-FE02-48AD-967E-635DCF6C2590}.Local|Any CPU.Build.0 = Local|Any CPU
-		{1A4DC093-FE02-48AD-967E-635DCF6C2590}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A4DC093-FE02-48AD-967E-635DCF6C2590}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A4DC093-FE02-48AD-967E-635DCF6C2590}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
-		{1A4DC093-FE02-48AD-967E-635DCF6C2590}.Staging|Any CPU.Build.0 = Staging|Any CPU
 		{1589C9E7-4D97-470D-9C55-46C42EEC4070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1589C9E7-4D97-470D-9C55-46C42EEC4070}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1589C9E7-4D97-470D-9C55-46C42EEC4070}.Local|Any CPU.ActiveCfg = Release|Any CPU

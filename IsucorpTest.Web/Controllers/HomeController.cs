@@ -38,10 +38,10 @@ namespace IsucorpTest.Web.Controllers
 
         [HttpPost]       
         public ActionResult Add(ContactViewModel contact)
-        {
+        {           
             contact.ContactType = _contactTypeLogic.GetContactType(contact.ContactTypeId);
             var result = _contactLogic.Add(contact);
-            return Json(new { success = result });
+            return Json(new { success = result });            
         }
 
         [HttpGet]

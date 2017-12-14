@@ -37,3 +37,22 @@ function createTextArea(language) {
     });
 }
 
+function onlyLetters(e) {
+    // Allow: backspace, delete, tab, escape, enter, space, Upper
+    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 32, 20]) !== -1 ||
+        // Allow: Ctrl+A, Command+A
+        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+        // Allow: home, end, left, right, down, up
+        (e.keyCode >= 35 && e.keyCode <= 40)) {
+        // let it happen, don't do anything
+        return;
+    }
+    // Ensure that it is a letter and stop the keypress   
+    if ((e.keyCode > 64 && e.keyCode < 91)) {
+        return
+    }
+    else{
+        e.preventDefault();
+    }   
+}
+

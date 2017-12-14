@@ -194,5 +194,14 @@ namespace IsucorpTest.Language.Entities {
                 return ResourceManager.GetString("PhoneNumber", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La longitus máxima del Numero Telefonico es 20.
+        /// </summary>
+        public static string PhoneNumberLength {
+            get {
+                return ResourceManager.GetString("PhoneNumberLength", resourceCulture);
+            }
+        }
     }
 }

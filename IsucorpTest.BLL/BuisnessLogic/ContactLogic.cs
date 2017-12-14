@@ -28,7 +28,7 @@ namespace IsucorpTest.BLL.BuisnessLogic
                 var dueDateSplit = contact.BirthDateString.Split('/');
                 contact.BirthDate = new DateTime(Convert.ToInt16(dueDateSplit[2]), Convert.ToInt16(dueDateSplit[0]), Convert.ToInt16(dueDateSplit[1]));
                 var name = new SqlParameter("@Name", contact.Name);
-                var phoneNumber = new SqlParameter("@PhoneNumber", contact.PhoneNumber);
+                var phoneNumber = new SqlParameter("@PhoneNumber", contact.PhoneNumber?? "");
                 var birthDate = new SqlParameter("@BirthDate", contact.BirthDate);
                 var contactTypeId = new SqlParameter("@ContactTypeId", contact.ContactTypeId);
                 var description = new SqlParameter("@Description", contact.Description);
@@ -50,7 +50,7 @@ namespace IsucorpTest.BLL.BuisnessLogic
                 contact.BirthDate = new DateTime(Convert.ToInt16(dueDateSplit[2]), Convert.ToInt16(dueDateSplit[0]), Convert.ToInt16(dueDateSplit[1]));
                 var id = new SqlParameter("@Id", contact.Id);
                 var name = new SqlParameter("@Name", contact.Name);
-                var phoneNumber = new SqlParameter("@PhoneNumber", contact.PhoneNumber);
+                var phoneNumber = new SqlParameter("@PhoneNumber", contact.PhoneNumber?? "");
                 var birthDate = new SqlParameter("@BirthDate", contact.BirthDate);
                 var contactTypeId = new SqlParameter("@ContactTypeId", contact.ContactTypeId);
                 var description = new SqlParameter("@Description", contact.Description);

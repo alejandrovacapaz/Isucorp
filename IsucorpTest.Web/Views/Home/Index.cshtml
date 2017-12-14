@@ -1,50 +1,42 @@
 ﻿@using IsucorpTest.Language.Entities
 @using IsucorpTest.Language
 @model IEnumerable<IsucorpTest.ViewModel.ViewModel.ContactViewModel>
-@{ 
+@{
     ViewBag.Title = Common.HomePage;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @Html.Partial("Delete")
 @Html.Partial("ClientErrors")
-<div class="jumbotron lessPadding noBottomMargin col-lg-12 col-sm-12 col-md-12">
-    <div class="col-lg-6 col-md-6 col-sm-6">
-        <h4 class="text-info">@ContactEntity.ContactInfo</h4>
+<form class="form-horizontal">
+    <div class="jumbotron lessPadding noBottomMargin col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <h4 class="text-info">@ContactEntity.ContactInfo</h4>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+            @Html.ActionLink(@ContactEntity.NewContact, "Add", null, new { @class = "btn btn-danger pull-right", id = "newContact" })
+        </div>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 text-right">
-        @Html.ActionLink(@ContactEntity.NewContact, "Add", null, new { @class = "btn btn-danger", id="newContact" })
-    </div>
-</div>
 
-<div class="row noLeftRigthMargin col-lg-12 col-md-12 col-sm-12">
-    <div class="col-lg-6 col-md-6 col-sm-6" style="padding-top: 15px; padding-bottom: 15px">
-        <div class="form-group">
-            <div class="col-lg-4 col-md-4 col-sm-4 text-right">
-                <label class="control-label" style="padding-top: 10px"> @Common.Search </label>               
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                 <input id="searchElement" type="text" class="form-control" placeholder="@Common.SearchValue" tabindex="1">
-            </div>            
+            </div>
         </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6" style="padding-top: 15px; padding-bottom: 15px">
-        <div class="form-group">
-            <div class="col-lg-7 col-md-7 col-sm-7 text-right noPadding">
-                <label class="control-label" style="padding-top: 10px"> @Common.ResultsPerPage </label>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 pull-left">
-                <input id="resultPerPage" type="number" value="7" min="5" max="10" class="form-control center-block" tabindex="2" style="max-width: 60px;">               
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 pull-left noPadding">                
-                <input id="goResultPerPage" type="button" value="@Common.Go" class="btn btn-info" tabindex="3">
+        <div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3 col-sm-12 col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon">@Common.ResultsPerPage</span>
+                <input id="resultPerPage" type="number" value="7" min="5" max="10" class="form-control text-right" tabindex="2">
+                <span id="goResultPerPage" class="input-group-addon btn-primary">@Common.Go</span>
             </div>
         </div>
     </div>
-</div>
 
-    <div class="minHeight">
-        <table id="indexTable" class="table-responsive table table-striped">
+
+    <div class="table-responsive">
+        <table id="indexTable" class="table table-striped">
             <thead>
                 <tr>
                     <th>
@@ -65,10 +57,10 @@
                     </th>
                     <th></th>
                 </tr>
-            <thead>
+            </thead>
             <tbody>
                 @foreach (var item in Model)
-            {
+                {
                     <tr id="row">
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
@@ -100,20 +92,22 @@
                             @Html.ActionLink(Common.Delete, "Delete", null, new { title = item.Name, id = item.Id, @class = "btn btn-warning deleteContact" })
                         </td>
                     </tr>
-            }
+                                }
             </tbody>
         </table>
     </div>
 
+</form>
+
 @section Scripts{
     <script src="~/Scripts/created/globalMethods.js"></script>
-    <script src="~/Scripts/created/deleteContact.js"></script>  
+    <script src="~/Scripts/created/deleteContact.js"></script>
     <script src="~/Scripts/jquery.sortElements.js"></script>
     <script src="~/Scripts/created/sortElements.js"></script>
     <script src="~/Scripts/created/paginate.js"></script>
     <script src="~/Scripts/created/searchElements.js"></script>
     <script>
-        var DeleteResource = {           
+        var DeleteResource = {
             DeleteContactError: '@ContactEntity.DeleteContactError'
         };
         $("span.page-number").click(function () {

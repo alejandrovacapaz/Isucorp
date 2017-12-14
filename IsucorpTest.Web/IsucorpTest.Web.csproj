@@ -232,7 +232,9 @@
     <Content Include="Content\Images\isu1.jpg" />
     <Content Include="Content\Images\isu2.jpg" />
     <Content Include="Content\Images\isu2.png" />
+    <Content Include="Content\Images\sp.ico" />
     <Content Include="Content\Images\sp.jpg" />
+    <Content Include="Content\Images\uk.ico" />
     <Content Include="Content\Images\uk.jpg" />
     <Content Include="Content\paginate.css" />
     <Content Include="Content\themes\base\accordion.css" />

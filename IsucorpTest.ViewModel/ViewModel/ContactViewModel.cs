@@ -11,7 +11,7 @@ namespace IsucorpTest.ViewModel.ViewModel
     {
         public ContactViewModel ()
         {
-
+            BirthDate = DateTime.Now;
         }
 
         public ContactViewModel(Contact contact)
@@ -42,10 +42,10 @@ namespace IsucorpTest.ViewModel.ViewModel
         [Required]
         public int Id { get; set; }
         [Required]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Name should be between 3 and 30 characters")]
+        [StringLength(30, MinimumLength = 3, ErrorMessageResourceName = "NameLengthError", ErrorMessageResourceType = typeof(ContactEntity))]
         [Display(Name = "Name", ResourceType = typeof(ContactEntity))]
         public string Name { get; set; }
-        [StringLength(20, MinimumLength = 0, ErrorMessage = "Phone max lenght is 20 characters")]
+        [StringLength(20, MinimumLength = 0, ErrorMessageResourceName = "PhoneNumberLength", ErrorMessageResourceType = typeof(ContactEntity))]
         [Display(Name = "PhoneNumber", ResourceType = typeof(ContactEntity))]
         public string PhoneNumber { get; set; }
         [Required]

@@ -43,7 +43,7 @@ $('#btnEditContact').on("click",
             $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + EditResources.BirthDateError + '</span>');
             error = true;
         }
-        else if (!error) {         
+        if (!error) {         
             data = {
                 Id: contactId,
                 Name: contactName,
@@ -73,11 +73,17 @@ $('#btnEditContact').on("click",
                 }
             });
         }
-        $('#clientErors').modal('show');
+        else {
+            $('#clientErors').modal('show');
+        }
     });
 
 // Methods to fix tinyMCE component tab problem, 
 // Get focus after birthDate is blured
 $('#birthDate').blur(function () {
     tinyMCE.activeEditor.focus();
+});
+
+$("#editContactName").keydown(function (e) {
+    onlyLetters(e);
 });
