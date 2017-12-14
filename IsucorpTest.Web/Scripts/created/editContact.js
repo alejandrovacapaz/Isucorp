@@ -8,10 +8,22 @@ $(document).ready(function () {
     cookies.forEach(function (valor, indice) {
         if (valor.indexOf('CultureInfo') !== -1) {
             if (valor.indexOf('es-ES') !== -1) {
-                $("#editBirthDate").datepicker({ maxDate: new Date, dateFormat: "'Nacimiento: 'mm-dd-yy" });
+                var options = $.extend({}, 
+                    $.datepicker.regional['es'], {
+                        maxDate: new Date,
+                        dateFormat: "'Nacimiento: 'dd-mm-yy"
+                    }
+                );
+                $("#editBirthDate").datepicker(options);                
                 createTextArea("es");
             } else {
-                $("#editBirthDate").datepicker({ maxDate: new Date, dateFormat: "'Birth Date: 'mm-dd-yy" });
+                var options = $.extend({}, 
+                    $.datepicker.regional['en-US'], {
+                        maxDate: new Date,
+                        dateFormat: "'Nacimiento: 'mm-dd-yy"
+                    }
+                );
+                $("#editBirthDate").datepicker(options);
                 createTextArea("en");
             }
         }

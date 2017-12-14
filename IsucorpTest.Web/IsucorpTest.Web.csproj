@@ -232,9 +232,7 @@
     <Content Include="Content\Images\isu1.jpg" />
     <Content Include="Content\Images\isu2.jpg" />
     <Content Include="Content\Images\isu2.png" />
-    <Content Include="Content\Images\sp.ico" />
     <Content Include="Content\Images\sp.jpg" />
-    <Content Include="Content\Images\uk.ico" />
     <Content Include="Content\Images\uk.jpg" />
     <Content Include="Content\paginate.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -307,6 +305,7 @@
     <Content Include="Scripts\created\paginate.js" />
     <Content Include="Scripts\created\searchElements.js" />
     <Content Include="Scripts\created\sortElements.js" />
+    <Content Include="Scripts\i-18\datepicker-es.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />

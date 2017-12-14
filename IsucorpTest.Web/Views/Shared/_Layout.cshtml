@@ -13,24 +13,14 @@
         <header>
             <img src="~/Content/Images/isu1.jpg" class="img-responsive" />
         </header>
-        <div class="btn-group">
-            <button type="button" id="englishLanguage" class="btn btn-primary pull-right" style="max-height: 5%; max-width: 5%">
+        <div class="btn-group pull-right">
+            <button type="button" id="englishLanguage" class="btn btn-primary">
                 <img src="~/Content/Images/uk.jpg" class="img-responsive" />
             </button>
-            <button type="button" id="spanishLanguage" class="btn btn-default pull-right" style="max-height: 5%; max-width: 5%">
+            <button type="button" id="spanishLanguage" class="btn btn-default">
                 <img src="~/Content/Images/sp.jpg" class="img-responsive" />
             </button>
-        </div>
-        @*<div class="row">            
-            <div class="text-right">
-                <button type="button" id="englishLanguage" class="btn btn-primary pull-right" style="max-height: 5%; max-width: 5%">
-                    <img src="~/Content/Images/uk.ico" class="img-responsive" />
-                </button>
-                <button type="button" id="spanishLanguage" class="btn btn-default pull-right" style="max-height: 5%; max-width: 5%">
-                    <img src="~/Content/Images/sp.ico" class="img-responsive" />
-                </button>
-            </div>
-        </div>*@
+        </div>       
         <main>
             @RenderBody()
         </main>
@@ -41,6 +31,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/created")
+    @Scripts.Render("~/bundles/i-18")
     @RenderSection("scripts", required: false)
 </body>
 </html>

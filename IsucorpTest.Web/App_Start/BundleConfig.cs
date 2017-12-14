@@ -28,7 +28,6 @@ namespace IsucorpTest.Web
                       "~/Scripts/created/language.js",
                       "~/Scripts/created/globalMethods.js"));
                       
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                         "~/Content/site.css",
@@ -37,6 +36,11 @@ namespace IsucorpTest.Web
                         "~/Content/themes/base/theme.css",
                         "~/Content/themes/base/jquery-ui.css",
                         "~/Content/themes/base/datepicker.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/i-18").Include(
+                "~/Scripts/i-18/datepicker-en-GB.js",
+                "~/Scripts/i-18/datepicker-es.js"
+                ));
         }
     }
 }

@@ -54,8 +54,8 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "phoneNumber", @type = "text", @placeholder = "(99) 9999-9999", @tabindex = "3", @max=20} })                                                        
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>                            
+                            <input class = "form-control" id = "phoneNumber" value="@Model.PhoneNumber" type = "text" placeholder = "(99) 9999-9999" tabindex = "3" maxlength = 20 /> 
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                            @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", @id = "birthDate", @type = "datetime", placeholder = @ContactEntity.BirthDate, @tabindex = "4" } })                            
+                            @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", @id = "birthDate", @type = "datetime", @placeholder = @ContactEntity.BirthDate, @tabindex = "4" } })                            
                         </div>
                     </div>
                 </div>
@@ -100,8 +100,7 @@
         };
     </script>
     <script src="~/Scripts/tinymce/js/tinymce/tinymce.min.js"></script>
-    <script src="~/Scripts/jquery.mask.js"></script>
-    <script src="~/Scripts/created/globalMethods.js"></script>
+    <script src="~/Scripts/jquery.mask.js"></script>  
     <script src="~/Scripts/created/addContact.js"></script>      
 }
 
