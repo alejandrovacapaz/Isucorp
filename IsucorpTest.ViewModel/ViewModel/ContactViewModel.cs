@@ -12,6 +12,7 @@ namespace IsucorpTest.ViewModel.ViewModel
         public ContactViewModel ()
         {
             BirthDate = DateTime.Now;
+            PhoneNumber = "";
         }
 
         public ContactViewModel(Contact contact)
