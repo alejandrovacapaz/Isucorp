@@ -2,8 +2,7 @@
 var initialDate = '';
 
 var contactModel = {
-    contactName: ko.observable(''),
-    phoneNumber: ko.observable(''),
+    contactName: ko.observable(''),   
     birthDate: ko.observable('')       
 };
 

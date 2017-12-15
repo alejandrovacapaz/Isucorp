@@ -6,9 +6,8 @@ function enableEdit() {
     return contactModel.contactName() != "" && contactModel.birthDate() != "" && ($("#editBirthDate").datepicker("getDate") < initialDate);
 }
 
-function createModel(contactName, phoneNumber, birthDateText) {
-    contactModel.contactName = ko.observable(contactName);
-    contactModel.phoneNumber = ko.observable(phoneNumber);
+function createModel(contactName, birthDateText) {
+    contactModel.contactName = ko.observable(contactName);   
     contactModel.birthDate = ko.observable(birthDateText);
     ko.applyBindings(contactModel);
 }
@@ -49,7 +48,7 @@ $(document).ready(function () {
     });    
     $('#editBirthDate').datepicker("setDate", birthDate);
     $("#editPhoneNumber").mask("(99) 9999-9999");
-    createModel($("#editContactName").val().trim(), $("#editPhoneNumber").val().trim(), $("#editBirthDate").val());    
+    createModel($("#editContactName").val().trim(), $("#editBirthDate").val());    
 });
 
 $('#contactType').change(function () {
