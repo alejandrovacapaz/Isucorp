@@ -77,8 +77,8 @@ $('#btnEditContact').on("click",
         if (!error) {         
             data = {
                 Id: contactId,
-                Name: contactModel.contactName,
-                PhoneNumber: contactModel.phoneNumber,
+                Name: contactModel.contactName(),
+                PhoneNumber: $("#editPhoneNumber").val().trim(),
                 BirthDate: contactBirthDate,
                 ContactTypeId: parseInt($("#ContactTypeId").val().trim()),
                 Description: tinymce.get('editContactDescription').getContent(),

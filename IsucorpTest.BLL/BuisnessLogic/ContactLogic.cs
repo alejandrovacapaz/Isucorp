@@ -81,7 +81,7 @@ namespace IsucorpTest.BLL.BuisnessLogic
         {
             try
             {
-                return _contactRepository.GetAllEntities().Select(n => new ContactViewModel(n)).OrderBy(x => x.Name)
+                return _contactRepository.List().Select(n => new ContactViewModel(n)).OrderBy(x => x.Name)
                     .ThenBy(x => x.PhoneNumber).ThenBy(x => x.BirthDate).ThenBy(x => x.ContactTypeId).ToList();
             }
             catch (Exception)

@@ -8,7 +8,7 @@ var contactModel = {
 };
 
 function enableSave() {
-    return contactModel.contactName() != "" && contactModel.birthDate() < initialDate;
+    return contactModel.contactName() != "" && contactModel.birthDate() != "" && (contactModel.birthDate() < initialDate);
 }
 
 $(document).ready(function () {
@@ -70,8 +70,8 @@ $('#btnAddContact').on("click",
         if (!error){          
             data = {
                 Id: 0,
-                Name: contactModel.contactName,
-                PhoneNumber: contactModel.phoneNumber,
+                Name: contactModel.contactName(),
+                PhoneNumber: $("#phoneNumber").val().trim(),
                 BirthDate: contactBirthDate,
                 ContactTypeId: parseInt($("#ContactTypeId").val().trim()),
                 Description: tinymce.get('contactDescription').getContent(),
