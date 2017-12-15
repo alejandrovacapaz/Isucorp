@@ -41,6 +41,9 @@ namespace IsucorpTest.Web
                 "~/Scripts/i-18/datepicker-en-GB.js",
                 "~/Scripts/i-18/datepicker-es.js"
                 ));
+
+            bundles.Add(new StyleBundle("~/bundles/Knockout").Include(
+                "~/Scripts/knockout-3.4.2.js"));
         }
     }
 }

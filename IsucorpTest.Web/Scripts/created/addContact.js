@@ -1,9 +1,16 @@
 ﻿var today = new Date();
 
+var contactModel = {
+    contactName: ko.observable(''),
+    phoneNumber: ko.observable(''),
+    birthDate: ko.observable(today)       
+};
+
 $(document).ready(function () {
+    ko.applyBindings(contactModel);
     $("#ContactTypeId").val($('#contactType option:selected').val());    
     var cookies = document.cookie.split(';');
-    cookies.forEach(function (valor, indice) {
+    cookies.forEach(function (valor) {
         if (valor.indexOf('CultureInfo') !== -1) {
             if (valor.indexOf('es-ES') !== -1) {
                 var options = $.extend({}, 
@@ -18,7 +25,7 @@ $(document).ready(function () {
                 var options = $.extend({},     
                     $.datepicker.regional["en-US"], {
                         maxDate: new Date,
-                        dateFormat: "'Nacimiento: 'mm-dd-yy"
+                        dateFormat: "'Birth Date: 'mm-dd-yy"                        
                     }
                 );
                 $("#birthDate").datepicker(options);
@@ -28,7 +35,7 @@ $(document).ready(function () {
     });    
     $('#birthDate').datepicker("setDate", today);
     $("#phoneNumber").mask("(99) 9999-9999");
-    $("#contactName").focus();
+    $("#contactName").focus();    
 });
 
 $('#contactType').change(function () {
@@ -57,9 +64,9 @@ $('#btnAddContact').on("click",
         if (!error){          
             data = {
                 Id: 0,
-                Name: contactName,
-                PhoneNumber: $("#phoneNumber").val().trim(),
-                BirthDate: $('#birthDate').datepicker("getDate"),
+                Name: contactModel.contactName,
+                PhoneNumber: contactModel.phoneNumber,//$("#phoneNumber").val().trim(),
+                BirthDate: contactModel.birthDate, //$('#birthDate').datepicker("getDate"),
                 ContactTypeId: parseInt($("#ContactTypeId").val().trim()),
                 Description: tinymce.get('contactDescription').getContent(),
                 BirthDateString: DatetoString($('#birthDate').datepicker("getDate"))

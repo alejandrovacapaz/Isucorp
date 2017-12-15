@@ -7,6 +7,11 @@ function toDate(dateStr) { //MM/DD/YYYY
     return new Date(parts[2], parts[0] - 1, parts[1]);
 }
 
+function toDateSpanish(dateStr) { //DD/MM/YYYY
+    var parts = dateStr.split("/");
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+}
+
 function DatetoString(date) { //MM/DD/YYYY
     return ((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
 }

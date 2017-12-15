@@ -4,7 +4,7 @@
 
 function SelectActiveLanguaje() {
     var cookies = document.cookie.split(';');
-    cookies.forEach(function (valor, indice) {
+    cookies.forEach(function (valor) {
         if (valor.indexOf('CultureInfo') !== -1) {
             if (valor.indexOf('es-ES') !== -1) {
                 $('#spanishLanguage').addClass('btn-primary').removeClass('btn-default');

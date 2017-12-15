@@ -12,6 +12,7 @@ namespace IsucorpTest.Model.DBModel
         [Required]
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
+        [Required]
         public DateTime BirthDate { get; set; }
         public int ContactTypeId { get; set; }
         public virtual ContactType ContactType { get; set; }     

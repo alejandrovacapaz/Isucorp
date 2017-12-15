@@ -49,8 +49,7 @@ namespace IsucorpTest.ViewModel.ViewModel
         [StringLength(20, MinimumLength = 0, ErrorMessageResourceName = "PhoneNumberLength", ErrorMessageResourceType = typeof(ContactEntity))]
         [Display(Name = "PhoneNumber", ResourceType = typeof(ContactEntity))]
         public string PhoneNumber { get; set; }
-        [Required]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        [Required]        
         [Display(Name = "BirthDate", ResourceType = typeof(ContactEntity))]
         public DateTime BirthDate { get; set; }
         [Required]

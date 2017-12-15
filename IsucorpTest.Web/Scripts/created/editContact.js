@@ -1,26 +1,29 @@
 ﻿var today = new Date();
-var birthDate = toDate($("#editBirthDate").val());
-
-$(document).ready(function () {   
+$(document).ready(function () {
+    var aux = $("#editBirthDate").val();
+    var dateString = aux.substr(0, aux.indexOf(' '));
+    var birthDate = null;
     $("#editContactType").val(contactTypeId);
     $("#ContactTypeId").val($('#editContactType option:selected').val());
     var cookies = document.cookie.split(';');
-    cookies.forEach(function (valor, indice) {
-        if (valor.indexOf('CultureInfo') !== -1) {
+    cookies.forEach(function (valor) {
+        if (valor.indexOf('CultureInfo') !== -1) {           
             if (valor.indexOf('es-ES') !== -1) {
+                birthDate = toDateSpanish(dateString);
                 var options = $.extend({}, 
                     $.datepicker.regional['es'], {
-                        maxDate: new Date,
+                        maxDate: new Date,                        
                         dateFormat: "'Nacimiento: 'dd-mm-yy"
                     }
                 );
                 $("#editBirthDate").datepicker(options);                
                 createTextArea("es");
             } else {
+                birthDate = toDate(dateString);
                 var options = $.extend({}, 
                     $.datepicker.regional['en-US'], {
-                        maxDate: new Date,
-                        dateFormat: "'Nacimiento: 'mm-dd-yy"
+                        maxDate: new Date,                       
+                        dateFormat: "'Birth Date: 'mm-dd-yy"
                     }
                 );
                 $("#editBirthDate").datepicker(options);
@@ -92,7 +95,7 @@ $('#btnEditContact').on("click",
 
 // Methods to fix tinyMCE component tab problem, 
 // Get focus after birthDate is blured
-$('#birthDate').blur(function () {
+$('#editBirthDate').blur(function () {
     tinyMCE.activeEditor.focus();
 });
 

@@ -1,4 +1,5 @@
-﻿@using IsucorpTest.Language.Entities
+﻿@using System.Globalization
+@using IsucorpTest.Language.Entities
 @using IsucorpTest.Language
 @model IEnumerable<IsucorpTest.ViewModel.ViewModel.ContactViewModel>
 @{
@@ -69,7 +70,7 @@
                             @Html.DisplayFor(modelItem => item.PhoneNumber)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BirthDate)
+                            @Html.DisplayFor(modelItem => item.BirthDate).ToString().Substring(0, item.BirthDate.ToString().IndexOf(' ') + 1)
                         </td>
                         <td>
                             @{
