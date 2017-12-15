@@ -1,20 +1,15 @@
 ﻿using System;
 using IsucorpTest.Model.DBModel;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using Microsoft.AspNet.Identity;
-
 
 namespace IsucorpTest.DAL
 {
-    public class IsucorpTestContext : IdentityDbContext
+    public class IsucorpTestContext : DbContext
     {
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<ContactType> ContactTypes { get; set; }
-        public IsucorpTestContext() : base("IsucorpTest.DAL.IsucorpTestContext")
+        public IsucorpTestContext() : base("name=IsucorpTest.DAL.IsucorpTestContext")
         {
             Configuration.ProxyCreationEnabled = true;
             Configuration.LazyLoadingEnabled = true;
@@ -26,18 +21,12 @@ namespace IsucorpTest.DAL
             return base.SaveChanges();
         }
 
-        public override async Task<int> SaveChangesAsync()
-        {
-            AddTimestamps();
-            return await base.SaveChangesAsync();
-        }
-
         private void AddTimestamps()
         {
             var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
 
-            var userName = HttpContext.Current?.User?.Identity.GetUserName();
-            var userId = HttpContext.Current?.User?.Identity.GetUserId();
+            var userName = "";
+            var userId = "";
 
             foreach (var entity in entities)
             {

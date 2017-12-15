@@ -162,4 +162,7 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>Numero Telefonico</value>
   </data>
+  <data name="PhoneNumberLength" xml:space="preserve">
+    <value>La longitus máxima del Numero Telefonico es 20</value>
+  </data>
 </root>
