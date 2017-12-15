@@ -32,7 +32,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "editContactName", @type = "text", @placeholder = @ContactEntity.ContactName, @tabindex = "1", @maxlength = 30 } })                       
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "editContactName", @type = "text", @placeholder = @ContactEntity.ContactName, @tabindex = "1", @maxlength = 30, data_bind = "value: contactName" } })                       
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                        <input class="form-control" id="editPhoneNumber" value="@Model.PhoneNumber" type="text" placeholder="(99) 9999-9999" tabindex="3" maxlength=20 />                         
+                        <input class="form-control" id="editPhoneNumber" value="@Model.PhoneNumber" type="text" placeholder="(99) 9999-9999" tabindex="3" maxlength=20 data_bind = "value: phoneNumber"/>                         
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", @id = "editBirthDate", @type = "datetime", placeholder = @ContactEntity.BirthDate, @tabindex = "4" } })                      
+                        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", @id = "editBirthDate", @type = "datetime", placeholder = @ContactEntity.BirthDate, @tabindex = "4", data_bind = "value: birthDate" } })                      
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group pull-right">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <input type="button" value="@Common.Save" class="btn btn-danger" id="btnEditContact"/>
+                        <input type="button" value="@Common.Save" class="btn btn-danger" id="btnEditContact" data-bind="enable: enableEdit()"/>
                     </div>
                 </div>
             </div>

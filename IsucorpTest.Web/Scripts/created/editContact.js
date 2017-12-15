@@ -1,5 +1,19 @@
 ﻿var today = new Date();
-$(document).ready(function () {
+var contactModel = {};
+var initialDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
+
+function enableEdit() {
+    return contactModel.contactName() != "" && contactModel.birthDate() != "" && ($("#editBirthDate").datepicker("getDate") < initialDate);
+}
+
+function createModel(contactName, phoneNumber, birthDateText) {
+    contactModel.contactName = ko.observable(contactName);
+    contactModel.phoneNumber = ko.observable(phoneNumber);
+    contactModel.birthDate = ko.observable(birthDateText);
+    ko.applyBindings(contactModel);
+}
+
+$(document).ready(function () {   
     var aux = $("#editBirthDate").val();
     var dateString = aux.substr(0, aux.indexOf(' '));
     var birthDate = null;
@@ -12,8 +26,9 @@ $(document).ready(function () {
                 birthDate = toDateSpanish(dateString);
                 var options = $.extend({}, 
                     $.datepicker.regional['es'], {
-                        maxDate: new Date,                        
-                        dateFormat: "'Nacimiento: 'dd-mm-yy"
+                        maxDate: today,                        
+                        dateFormat: "'Nacimiento: 'dd-mm-yy",
+                        setdate: today
                     }
                 );
                 $("#editBirthDate").datepicker(options);                
@@ -22,17 +37,19 @@ $(document).ready(function () {
                 birthDate = toDate(dateString);
                 var options = $.extend({}, 
                     $.datepicker.regional['en-US'], {
-                        maxDate: new Date,                       
-                        dateFormat: "'Birth Date: 'mm-dd-yy"
+                        maxDate: today,                       
+                        dateFormat: "'Birth Date: 'mm-dd-yy",
+                        setdate: today
                     }
                 );
                 $("#editBirthDate").datepicker(options);
                 createTextArea("en");
             }
         }
-    });
+    });    
     $('#editBirthDate').datepicker("setDate", birthDate);
     $("#editPhoneNumber").mask("(99) 9999-9999");
+    createModel($("#editContactName").val().trim(), $("#editPhoneNumber").val().trim(), $("#editBirthDate").val());    
 });
 
 $('#contactType').change(function () {
@@ -43,14 +60,13 @@ var data;
 $('#btnEditContact').on("click",
     function () {
         $("#errorsSection").empty();
-        var error = false;
-        var contactName = $("#editContactName").val().trim();
+        var error = false;        
         var contactBirthDate = $("#editBirthDate").datepicker("getDate");
-        if (contactName === "") {
+        if (contactModel.contactName() === "") {
             $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + EditResources.NameError + '</span></br>');
             error = true;
         }
-        if (contactName.length < 3 || contactName.length > 30) {
+        if (contactModel.contactName().length < 3 || contactModel.contactName().length > 30) {
             $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + EditResources.NameLengthError + '</span></br>');
             error = true;
         }
@@ -61,12 +77,12 @@ $('#btnEditContact').on("click",
         if (!error) {         
             data = {
                 Id: contactId,
-                Name: contactName,
-                PhoneNumber: $("#editPhoneNumber").val().trim(),
-                BirthDate: $('#editBirthDate').datepicker("getDate"),
+                Name: contactModel.contactName,
+                PhoneNumber: contactModel.phoneNumber,
+                BirthDate: contactBirthDate,
                 ContactTypeId: parseInt($("#ContactTypeId").val().trim()),
                 Description: tinymce.get('editContactDescription').getContent(),
-                BirthDateString: DatetoString($('#editBirthDate').datepicker("getDate"))
+                BirthDateString: DatetoString(contactBirthDate)
             }
             $.ajax({
                 type: 'POST',

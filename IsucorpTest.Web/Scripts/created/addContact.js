@@ -1,10 +1,15 @@
 ﻿var today = new Date();
+var initialDate = '';
 
 var contactModel = {
     contactName: ko.observable(''),
     phoneNumber: ko.observable(''),
-    birthDate: ko.observable(today)       
+    birthDate: ko.observable('')       
 };
+
+function enableSave() {
+    return contactModel.contactName() != "" && contactModel.birthDate() < initialDate;
+}
 
 $(document).ready(function () {
     ko.applyBindings(contactModel);
@@ -12,19 +17,20 @@ $(document).ready(function () {
     var cookies = document.cookie.split(';');
     cookies.forEach(function (valor) {
         if (valor.indexOf('CultureInfo') !== -1) {
-            if (valor.indexOf('es-ES') !== -1) {
+            if (valor.indexOf('es-ES') !== -1) {                
                 var options = $.extend({}, 
                     $.datepicker.regional['es'], {
-                        maxDate: new Date,
+                        maxDate: today,
                         dateFormat: "'Nacimiento: 'dd-mm-yy"                        
                     } 
                 );
                 $("#birthDate").datepicker(options);                
                 createTextArea("es");
             } else {
+                lang = "es";
                 var options = $.extend({},     
                     $.datepicker.regional["en-US"], {
-                        maxDate: new Date,
+                        maxDate: today,
                         dateFormat: "'Birth Date: 'mm-dd-yy"                        
                     }
                 );
@@ -35,7 +41,8 @@ $(document).ready(function () {
     });    
     $('#birthDate').datepicker("setDate", today);
     $("#phoneNumber").mask("(99) 9999-9999");
-    $("#contactName").focus();    
+    $("#contactName").focus();
+    initialDate = $("#birthDate").val();
 });
 
 $('#contactType').change(function () {
@@ -46,14 +53,13 @@ var data;
 $('#btnAddContact').on("click",
     function () {
         $("#errorsSection").empty();
-        var error = false;
-        var contactName = $("#contactName").val().trim();
+        var error = false;        
         var contactBirthDate = $("#birthDate").datepicker("getDate");
-        if (contactName === "") {
+        if (contactModel.contactName() === "") {
             $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + Resources.NameError + '</span></br>');
             error = true;
         }
-        if (contactName.length < 3 || contactName.length > 30) {
+        if (contactModel.contactName().length < 3 || contactModel.contactName().length > 30) {
             $("#errorsSection").append('<span class="text-danger" style="padding-left: 5%">' + Resources.NameLengthError + '</span></br>');
             error = true;
         }
@@ -65,11 +71,11 @@ $('#btnAddContact').on("click",
             data = {
                 Id: 0,
                 Name: contactModel.contactName,
-                PhoneNumber: contactModel.phoneNumber,//$("#phoneNumber").val().trim(),
-                BirthDate: contactModel.birthDate, //$('#birthDate').datepicker("getDate"),
+                PhoneNumber: contactModel.phoneNumber,
+                BirthDate: contactBirthDate,
                 ContactTypeId: parseInt($("#ContactTypeId").val().trim()),
                 Description: tinymce.get('contactDescription').getContent(),
-                BirthDateString: DatetoString($('#birthDate').datepicker("getDate"))
+                BirthDateString: DatetoString(contactBirthDate)
             }
             $.ajax({
                 type: 'POST',
